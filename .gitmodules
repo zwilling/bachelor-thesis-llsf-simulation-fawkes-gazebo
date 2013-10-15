@@ -1,0 +1,3 @@
+[submodule "proposal"]
+	path = proposal
+	url = git@github.com:zwilling/BA-Proposal-GazeboSim.git
