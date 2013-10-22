@@ -1,0 +1,244 @@
+\documentclass[a4paper,11pt]{article}
+
+%%%%%%%%%
+%%uses%%
+%%%%%%%%%
+\usepackage[utf8]{inputenc}
+%\usepackage[ngerman]{babel}
+%\usepackage{a4wide}
+\usepackage[margin=3.0cm, top=3.0cm, bottom=3.0cm]{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{amssymb} 
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{footnote}
+\usepackage{caption}
+\usepackage{color}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cite}
+\usepackage{setspace}
+
+
+
+%%%%%%%%%
+%%Title%%
+%%%%%%%%%
+
+\author{Frederik Zwilling 304314}
+\title{Structuring: Simulation of the RoboCup Logistic League with Fawkes and Gazebo for Multi-Robot Coordination Evaluation}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+%%%%%%%%%
+%%Text%%
+%%%%%%%%
+
+%\abstract{This is the abstract.}
+
+
+\section{Introduction}
+\begin{itemize}
+\item Multi-robot systems (definition, applications, advantages)
+\item Challenges in development process (general, multi-robot systems)
+\item Effort and importance of testing
+\item[$\Rightarrow$] Thesis topic, advantages of a simulation
+\item LLSF as domain for this thesis
+\item Use of Fawkes and Gazebo
+\item Overview other sections
+\end{itemize}
+
+\section{Background}
+\subsection{RoboCup}
+\begin{itemize}
+\item Description
+\item Targets
+\item Short overview of the different leagues (important because of simulation leagues and other multi-agent systems)
+\end{itemize}
+\subsubsection{LLSF}
+\begin{itemize}
+\item Introduction, importance of the logistics domain
+\item Field, game elements, production chain, phases, refbox
+\end{itemize}
+\subsection{Robotino}
+\begin{itemize}
+\item General information
+\item Features
+\item Components and sensors of the Carologistics Robotino
+\end{itemize}
+\subsection{Robot Software Frameworks}
+\begin{itemize}
+\item Definition
+\end{itemize}
+\subsubsection{ROS}
+\begin{itemize}
+\item Description
+\item Communication with nodes
+\item Use in the thesis
+\end{itemize}
+\subsubsection{Fawkes}
+\begin{itemize}
+\item Description
+\item Features, design
+\item Comparison to ROS
+\item[$\Rightarrow$] Advantages for the thesis
+\end{itemize}
+\subsection{Protocol Buffers}
+\begin{itemize}
+\item Description
+\item Use
+\item Structure
+\item[$\Rightarrow$] Features/Advantages in the thesis
+\end{itemize}
+\subsection{Gazebo}
+\begin{itemize}
+\item General description
+\item Roots
+\item Features, design
+\item Architecture, components
+\item[$\Rightarrow$] Advantages for the thesis
+\end{itemize}
+\subsection{MongoDB}
+\begin{itemize}
+\item Description
+\item Use in the thesis
+\item[$\Rightarrow$] Advantages for the thesis
+\end{itemize}
+
+\section{Related Work}
+\subsection{Other Simulators}
+\subsubsection{Stage}
+\subsubsection{Robotino Sim Professional}
+\subsubsection{Webots}
+\subsubsection{USARSim}
+\subsubsection{Simspark}
+\subsubsection{Choice for Gazebo}
+\subsection{Simulations}
+\subsubsection{Virtual Robotics Challenge}
+Ich weiß noch nicht, ob ich das so reinbringen möchte. Die VRC ist zwar sehr interessant und spektakulär, aber die Motive von DARPA sind fragwürdig und die Paper, die ich gefunden habe, sagen nicht viel zur Simulation selber.
+\subsubsection{RoboCup Simulation Leagues}
+\begin{itemize}
+\item Rescue Simulation League (USARSim)
+\item 3D Soccer Simulation League (Simspark)
+\end{itemize}
+\subsubsection{Simulation Environment for MSL}
+\begin{itemize}
+\item Paper: A Simulation Environment for Middle-Size Robots with Multi-level Abstraction
+\end{itemize}
+\subsection{Multi-Agent Strategies}
+\subsubsection{Incremental Task-level Reasoning}
+\begin{itemize}
+\item Current LLSF approach
+\item Advantages
+\item Limitations
+\end{itemize}
+\subsubsection{Market Based Strategies}
+\begin{itemize}
+\item Murdoch (Proposal)
+\item Advantages/Disadvantages
+\end{itemize}
+
+
+\section{Design Ideas and Thoughts}
+\subsubsection{Goals and Approaches}
+\begin{itemize}
+\item Efficient testing $\Rightarrow$ Loading of different configurations, automated simulation start-up, additional visualizations (e.g. localization shown in Gazebo)
+\item Realistic simulation $\Rightarrow$ Physics, visuals, added noise/odometry error, time-sync
+\item Realism vs Ground truth $\Rightarrow$ Multi Level abstraction
+\item Expendability, flexibility $\Rightarrow$ small modules, configurability, documentation
+\item MAS evaluation $\Rightarrow$ Automated simulations runs, comparisons, statistics, replays
+\item No changes on robot software to run in simulation $\Rightarrow$ Interfaces
+\end{itemize}
+\subsubsection{Architecture}
+\begin{itemize}
+\item Fawkes-Gazebo interaction
+\item Agent + refbox communication
+\item Simulation on different levels
+\end{itemize}
+
+
+\section{Implementation}
+\subsection{Modules}
+\begin{itemize}
+\item Gazebo models
+\item Gazebo plugins
+\item Fawkes plugins
+\item Automation scripts
+\end{itemize}
+\subsection{Module Dependencies}
+\subsection{Communication}
+\begin{itemize}
+\item Protobuf msgs
+\item Send frequencies
+\end{itemize}
+\subsection{Agent Improvements}
+\begin{itemize}
+\item Dynamic role change
+\item Recycling
+\item Third agent, resulting role changes
+\end{itemize}
+
+
+\section{Evaluation}
+\subsection{Simulation}
+\subsubsection{Realism}
+\begin{itemize}
+\item Separated evaluation of each simulation component (Sensors, movement, puck behavior)
+\item Overall
+\item Limitations
+\end{itemize}
+\subsubsection{Computational Performance Measuring}
+\begin{itemize}
+\item CPU + Memory Usage
+\item Simulation Speed
+\item With different number of robots
+\item With different sensor update rates
+\end{itemize}
+\subsubsection{Use for Multi-Robot Coordination Evaluation}
+\begin{itemize}
+\item Possibility to test coordination/strategy easily and with little effort
+\item In simulation identified real problems
+\item Dependency of performance on low level problems
+\item Difficulty to test specific situations that do not often happen in a regular game
+\item Advantages/Limitations of automated simulation runs and statistics
+\end{itemize}
+\subsection{Multi-Agent Strategies}
+\subsubsection{Dynamic Role Change}
+\begin{itemize}
+\item Gain
+\item Statistics
+\item Comment/Explanation (Change actually occurs rarely)
+\end{itemize}
+\subsubsection{Recycling}
+\begin{itemize}
+\item Gain
+\item Statistics
+\item Often simple points
+\item Difficulties and Consequences (grepping wrong puck, place puck under R1/R2, collision while executing skill without collision avoidance)
+\end{itemize}
+\subsubsection{Role Configurations}
+\begin{itemize}
+\item Statistics with different role configurations with two robots (P3 + P1P2, 2*P3, P1 + P2)
+\item Statistics with different role configurations with three robots (2*P3 + P1P2, P1 + P2 + P3, 3*P3)
+\item Causes
+\end{itemize}
+
+
+\section{Future Work}
+\begin{itemize}
+\item LLSF changes
+\item Small agent improvements
+\item Marked based approach, global planning
+\item Caesar
+\item Simulation improvements (Omnivision, loading situations with copy of clips fact-base)
+\item Many further possibilities (Automated learning, parameter-finding, visualization tool)
+\end{itemize}
+
+\section{Conclusion}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
