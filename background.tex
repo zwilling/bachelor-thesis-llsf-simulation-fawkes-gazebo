@@ -13,14 +13,44 @@ Initially, the RoboCup started as robot soccer world cup. The goal ``By mid-21st
 
 \subsection{Logistic League sponsored by Festo}
 The Logistic League Sponsored by Festo (LLSF) is a competition in the RoboCup. LLSF aims to foster scientific work on autonomous solutions for logistics and to provide a testbed for existing approaches~\cite{LLSFTestbed}. The participants should find new approaches and improve already existing ones to optimize material and information flow in logistics.
-LLSF takes place  in a simplified production hall~\cite{LLSFRules}. 
+LLSF takes place  in a simplified production hall~\cite{LLSFRules}.
 \begin{figure}
-\centering
-\includegraphics[scale=0.3]{pics/llsf}
-\label{Figure 1}
-\caption{A half of the LLSF field. Two Robotinos of the Carologistics team at the RoboCup German Open 2013}
+\begin{minipage}[b]{0.5\linewidth}
+\includegraphics[scale=0.23]{pics/llsf}
+\caption{Part of the LLSF field}
+\label{fig:llsf_field}
+\end{minipage}
+\quad
+\begin{minipage}[b]{0.5\linewidth}
+\includegraphics[scale=0.45]{pics/production_chain}
+\caption{LLSF Production Chain}
+\label{fig:llsf_chain}
+\end{minipage}
 \end{figure}
-Figure 1 shows a part of the 5.6m x 5.6m hall with two Carologistic robots, three machines and some material-pucks. The main task of LLSF is to produce and deliver ordered products as efficient as possible by feeding machines with resources and semi-finished products. The participants can use up to three Robotino robots by Festo~\cite{{Robotino}}. They hold omni-directional wheels, a gripper to move pucks, and other sensors added by the participants. The orange pucks represent resources and products. They are equipped with an RFID-chip\footnote{Radio-frequency identification allows the wireless identification of objects with small chips.} which is needed to store the different product states of the pucks. The light-signals on top of the RFID-readers represent the machines. They convert resources or semi-finished products into products and trash. There are different types of machines. They can produce different product-types, produce intermediate products, recycle trash or are used for the delivery of products. The light-signals on top of the machines indicate the machine-status. Beside these visual elements, there is also a referee box (refbox), which controls the machines and communicates with the robots during the game. The refbox gives orders which products are to be produced, informs the robots about the game state and rewards points for achieved goals.
+Figure~\ref{fig:llsf_field} shows a part of the 5.6m x 5.6m hall with
+two Carologistic robots, three machines and some material-pucks. The
+main task of LLSF is to produce and deliver ordered products as
+efficient as possible by feeding machines with resources and
+semi-finished products. The participants can use up to three Robotino
+robots by Festo~\cite{{Robotino}}. We present the Robotino in the next
+section in detail. Orange pucks represent resources and products. They
+are equipped with an RFID-chip\footnote{Radio-frequency identification
+  allows the wireless identification of objects with small chips.}
+which is needed to store the different product states of the
+pucks. The machines are represented by the RFID-readers with the
+traffic light on top. The traffic-light indicates the current status
+of a machine, such as ready, producing and out-of-order. The machines
+take ressources and semi-finished products as input and turn one input
+uck in a further produced puck. All other inputted pucks are turned
+into consumed puck which can be recycled to get new ressource
+pucks. There are different types of machines. The type defines the
+needed input and the produced output of a
+machine. Figure~\ref{fig:llsf_chain} shows the production chain. There
+are the raw-material pucks $S0$, intermidiate product pucks $S1$ and $S2$
+and product puck $P1$, $P2$ and $P3$. The machine type are labled with
+$T1$ to $T5$. Beside these regular machines there are also Recycling
+machines which turn consumed pucks into raw-material pucks and
+delivery machines which only take finished product pucks. __________________ , there is also a referee box (refbox), which controls the machines and communicates with the robots during the game. The refbox gives orders which products are to be produced, informs the robots about the game state and rewards points for achieved goals.
 \section{Robotino}
 \section{Robot Software Frameworks}
 \subsection{ROS}
