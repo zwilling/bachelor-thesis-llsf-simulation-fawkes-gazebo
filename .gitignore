@@ -1,0 +1,17 @@
+# Compiled source #
+###################
+
+*.aux
+*.bbl
+*.lof
+*.log
+*.out
+*.toc
+*.pdf
+*.lot
+*.blg
+
+# Emacs backups #
+##################
+*~
+
