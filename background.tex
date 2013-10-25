@@ -47,11 +47,17 @@ pucks. There are different types of machines. The type defines the
 needed input and the produced output of a
 machine. Figure~\ref{fig:llsf_chain} shows the production chain. There
 are the raw-material pucks $S0$, intermidiate product pucks $S1$ and $S2$
-and product puck $P1$, $P2$ and $P3$. The machine type are labled with
+and product puck $P1$, $P2$ and $P3$. The machine types are labled with
 $T1$ to $T5$. Beside these regular machines there are also Recycling
 machines which turn consumed pucks into raw-material pucks and
-delivery machines which only take finished product pucks. __________________ , there is also a referee box (refbox), which controls the machines and communicates with the robots during the game. The refbox gives orders which products are to be produced, informs the robots about the game state and rewards points for achieved goals.
+delivery machines which only take finished product pucks. The team gets awarded with points for delivering finished products, producing complex pucks and recyling. The game is devided in two phases. In the first phase, the \textit{exploration phase}, the robots have three minutes to explore the production area to identify which machine has which type. The team also receives points for each correct reported machinetype. The second phase is the actual \textit{production phase} and lasts 15 minutes. The league also features an automated referee box (refbox). It controls the machines and communicates with the robots during the game. The refbox gives orders which products are to be produced, informs the robots about the game state and rewards points for achieved goals.
+
+
 \section{Robotino}
+The Robotino~\cite{Robotino} is a mobile robot developed by Festo Didactic~\footnote{http://www.festo-didactic.com}. It is used for research and education. The shape of the robotino is a cylinder with 37cm diameter and 21cm height. It holds omni-directional wheels to be able to drive in any direction and turn at the same time. It is shipped with nine infrared distance mesuring sensors ordered around the robot, a bumper around the robot to detect collisions and a webcam. A microcontroller and an embedded PC with 800 MHz and 128 MB RAM are used to control the robot. The PC runs with a linux Operating System. The Robotino is designed to be extendable to be usable in different applications. Therefore additional sensors and actuators can be attached. In the front of the Robotino, there is a loading bay with some space for extensions. Some common extensions are a forklift, a static gripper to move pucks on the ground and a laser range finder.\\
+\textcolor{red}{In LLSF, we use the Robotino shown in figure dingdong.}
+
+
 \section{Robot Software Frameworks}
 \subsection{Robot Operating System}
 \subsection{Fawkes}
