@@ -4,15 +4,36 @@ In this chapter we present work related to this thesis. In section 3.1, we desci
 
 \section{Other Simulators}
 \subsection{Stage}
+\textit{Stage}\footnote{\url{http://playerstage.sourceforge.net/index.php?src=stage}} is an Open Source multi-robot simulator for a two dimensional environment. It is a part of the \textit{Player/Stage} project~\cite{{PlayerStage}}. \textit{Player} is a robot control server, which provides a simple connection between a robot control program and the sensors and actuators of a robot. Stage uses this connection and replaces the sensors and actuators by simulated ones. Stage was popular simulator in the last years and is able to simulate a large amount of robots. For the simulation, stages simple and computationaly cheap models, that provide still enough fidelity for most applications. Furthermore the computational effort is linear in the number of robots. Because of that, Stage can simulate large amounts of robots~\cite{stage_massive}. This makes Stage attractive for the simulation of swarms and multi-robot systems with many robots.
+
 \subsection{Webots}
+\textit{Webots}\footnote{\url{http://www.cyberbotics.com}} is a commercial 3D-simulator~\cite{{Webots}}. It is platform independent features a whole development environment for robot software including an editor and an \textcolor{red}{API} for inter-robot communication. Webots supports many programming languages and supports a variat of standard robots and sensors out of the box. It is also able to simulate multiple robots and provides a ROS and \textcolor{red}{Matlab} interface.\\
+Webots was used in a RoboCup Soccer simulation league~\cite{webots_robocup}.
+
 \subsection{USARSim}
-\subsection{Simspark}
+\textit{USARSim} is a 3D-simulator that was developed for urban search and rescue scenarios~\cite{USARSim}. It was envolved to be able to simulate other domains too. Therefore, the abbriviation USARSim now stands for ``Unified System for Automation 
+and Robotics Simulation'' instead of te previous ``Urban Search and Rescue Simulation''~\cite{usarsim_new}. It is platform independent and free of charge for research and education. It's advantages are the graphical quality of the Unreal engine\footnote{\url{http://www.unrealengine.com/udk}} and the PhysX physics engine\footnote{\url{https://developer.nvidia.com/physx}}. USARSim also provides an interface to ROS~\cite{USARSimROS} and is able to simulate multiple robots.\\
+USARSim is used as a basis for the RoboCup Rescue Simulation League we also present in section 3.2.2.
+
+\subsection{SimSpark}
+\textit{SimSpark}\footnote{\url{http://simspark.sourceforge.net/}} is an Open Source 3D simulator~\cite{simspark_old}. It was developed by the RoboCup community for the RoboCup 3D Soccer Simulation and has been used there since 2004. Therefore SimSpark is able to simulate multiple robots and specialised on the NAO as soccer robot. There are several improvementsand new features of SimSpark~\cite{SimSpark,Visualization}, such as visualization of agent-intentions, realistic servo motors for the NAO and better support of heterogenous robot teams.
+
 \subsection{Robotino Sim Professional}
+\textit{Robotino Sim Professional}\footnote{\url{http://www.festo-didactic.com/int-en/learning-systems/software-e-learning/robotino-sim-view/robotino-sim-professional.htm}} is a 3D-simulator for the Robotino developed by its manufacturer Festo. It is a commercial software and only usable on Microsoft Windows. Furthermore, it is limited to the Robotino and the default sensors the robotino is sold with.
+
 \subsection{Choice for Gazebo}
+We aready presented Gazebo and some of its advantages in section 2.4. Here we explain why we have chosen Gazebo instead of an alternative we described above.\\
+The stage simulator is well suited for multi-robot systems and comparatively fast and easy to use. However, the restriction to dimensions is a problem. We want to simulate vision components as well to be able to test our system as a whole and more realistic. We also want to be extendable for future changes of LLSF or the use of the simulator in an other domain, such as the RoboCup @Home league.\\
+Webots is a proven simulator with many features, but has the same problems as Robotino Sim Professional. On the one hand both simulators are commercial and on the other hand both are no Open Source software. Therefore it can be difficult to expand the simulation how we need it.\\
+SimSpark is not so well suited as Gazebo because it and the community behind are mostly specialized on the RoboCup Soccer Simulation. Gazebo is used in large variaty of domains and has a bigger community. Gazebo is well founded by the Open Source Robotics Foundation\footnote{\url{http://osrfoundation.org/}} and Willow Garage\footnote{\url{http://www.willowgarage.com/}} and there are also many plans to develop Gazebo further\footnote{\textcolor{red}{link roadmap}}. Therefore Gazebo is likely to become even more important in the future.\\
+An other important argument for Gazebo is that it was used at KBSG before. It was used as a simulator for MSL~\cite{MultiLevelAbstraction} and it was used for a scene reconstruction~\cite{KlingenDA}. We will present both later in this chapter.\\
+There are only few disadvantages of Gazebo for this thesis. A disadvantage is that Gazebo can not handle larger number of robots. The complexity of the simulations limits the simulation speed when using multiple robots. The number of robots to simulate at a reasonable speed is in the order of ten~\cite{GazeboDesign}. This can become a problem if the simulation runs on a slow computer or there are more robots to simulate at the same time.
 
 \section{Simulations}
 \subsection{Virtual Robotics Challenge}
 \subsection{RoboCup Simulation Leagues}
+\subsection{Scene Reconstruction}
+\textcolor{red}{sectionname?}
 \subsection{Simulation Environment for the Middle Size League}
 
 \section{Multi-Agent Strategies}
