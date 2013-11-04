@@ -33,16 +33,69 @@ There are only few disadvantages of Gazebo for this thesis. A disadvantage is th
 \section{Simulations}
 \textcolor{red}{blabla?}
 \subsection{Virtual Robotics Challenge}
-The \textit{Virtual Robotics Challenge (VRC)} is a competition by DARPA\footnote{DARPA is the Defense Advanced Research Projects Agency of the USA.}. The goal of the competitin is to solve challenging tasks with a humaniod robot in a simulation. VRC is the first part of the \textit{DARPA Robotics Callenge (DRC)}\footnote{\url{http://www.theroboticschallenge.org/}}. DRC aims to spur the development of robots that can operate in a desaster scenario if the situation is too dangerous for humans. An example for such a scenario is the desaster in the Fukushima nuclear power plant after tsunami in March 2011~\cite{fukushima}. The developed robots should be able to operate in environment made for humans, even if the environment is damaged, and to use tools made for humans, such as screwdrivers and cars. During the competition the robots act partly autonomously and are supervised by a human instructor. Altough the technology fostered by DRC is important and useful without doubt, it seems questionable what DARPA as a military agency will use this technology for.\\
-VRC is related to this thesis because it also uses the Gazebo simulator~\cite{IEEESpectrum}. Therefore it shows what Gazebo is capabile of and how important a simulation is for the development and research.
+The \textit{Virtual Robotics Challenge (VRC)} is a competition by DARPA\footnote{DARPA is the Defense Advanced Research Projects Agency of the USA.}. The goal of the competitin is to solve challenging tasks with a humaniod robot in a simulation. VRC is the first part of the \textit{DARPA Robotics Callenge (DRC)}\footnote{\url{http://www.theroboticschallenge.org/}}. DRC aims to spur the development of robots that can operate in a desaster scenario if the situation is too dangerous for humans. An example for such a scenario is the desaster in the Fukushima nuclear power plant after tsunami in March 2011~\cite{fukushima}. The developed robots should be able to operate in environment made for humans, even if the environment is damaged, and to use tools made for humans, such as screwdrivers and cars. During the competition the robots act partly autonomously and are supervised by a human instructor. For the callenge, DARPA provides six humanoid robots. The Robots are called ATLAS and are developed by Boston Dynamics. The six best teams of VRC receive a ATLAS robot for free. Therefore ATLAS is the only robot simulated in VRC. However the participating teams can also build their own robots. VRC consists of three different tasks~\cite{vrc_rules} showed in Figure~\ref{fig:vrc}.
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.3\textwidth}
+    \includegraphics[width=\textwidth]{pics/darpa_car}
+    \caption{Driving a car}
+    \label{fig:vrc_car}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.3\textwidth}
+    \includegraphics[width=\textwidth]{pics/darpa_walking}
+    \caption{Crossing rough terrain}
+    \label{fig:vrc_walking}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.3\textwidth}
+    \includegraphics[width=\textwidth]{pics/darpa_hose}
+    \caption{Connecting a hose}
+    \label{fig:vrc_hose}
+  \end{subfigure}
+  \caption{Tasks of the Virtual Robotics Challenge~\cite{vrc_pics}}
+  \label{fig:vrc}
+\end{figure}
+In the first task, the robot has to walk to a car, enter it and drive along a street. The chasis of the car consists of a framework to simplify the entry. On the road, there are obstacles the robot has to avoid. The second tasks tests the walking capabilities of the robot. The robot has to cross slippery and irregular terrain to test balancing and a terrain with obstacles to test perception and footstep planning. The last task is about manipulation. The robot has to connect a hose to a pipe by pluggin it in and scrweing it down. Afterwards, it has to open a valve. All tasks have randomized parameters, such as the position of obstacles and goals.\\
+VRC is related to this thesis because it also uses the Gazebo simulator~\cite{IEEESpectrum}. Therefore it shows what Gazebo is capabile of and how important a simulation is for the development and research of cutting-edge technology. \textcolor{red}{more}
+Altough the technology fostered by DRC is important and useful without doubt, it seems questionable what DARPA as a military agency will use this technology for.
 
 
-use simulation cutting edge tech dev
-capabilities of gazebo, processing power
-related to this thesis because
-rules
-held
 \subsection{RoboCup Simulation Leagues}
+In the RoboCup competition, there are different simulation leagues. On the one hand, there are the 2D and 3D soccer simulation leagues and on the other hand, there are two rescue simulation leagues. In all of those leagues, multi-robot coordination is a important field. This is not suprising because it is much simpler to benchmark multi-robot strategies in a simulation. There is no need to operate real hardware and difficult low level control and sense problems, that are not the focus of the benchmark, can be simplified or left out.\\
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.48\textwidth}
+    \includegraphics[width=\textwidth]{pics/rescue3d}
+    \caption{Agent Competition~\cite{rescue3d}}
+    \label{fig:rescue_agent_competition}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.48\textwidth}
+    \includegraphics[width=\textwidth]{pics/rescue_vrc}
+    \caption{Virtual Robot Competition~\cite{rescue_simulation_league}}
+    \label{fig:rescue_vrc}
+  \end{subfigure}
+  \caption{Rescue Simulation Leagues}
+  \label{fig:rescue}
+\end{figure}
+The \textit{Rescue Simulation League (RSL)} aims to benchmark intelligent software agents and robots in a disaster scenario~\cite{rescue_simulation_league}. RSL is seperated into to leagues with different with focus on different scales. Figure~\ref{fig:rescue} shows snapshots of both simulation. The \textit{Agent Competition} is about a large scale disaster in a city with multiple robot teams. The \textit{Virtual Robot Competition} is about finding victims in a burning house or limited outdoor area with a team of eight robots and one human operator. The operator can give high level commands, such as the area where to look for victims, and is needed to verify the observations of the robots. So, the robots should find and approach victims autonomously and the operator has to confirm it. The task of the agents include victim-detection, autonomous generation of maps, navigation and multi-robot coordination. In the Agent Competition, there is no realistic robot control and perception necessary. The focus is on the coordination of many heterogenous agents to take high level decisions. There are teams of fire brigarde, police and ambulance, each with up to 30 simulated agents. Each agent acts automomously and can communicate with other agents. The tasks of the agents include exploration, scheduling and planning in cooperation with other agents and building of agent teams (e.g. to fight fires more effectively).\\
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.48\textwidth}
+    \includegraphics[width=\textwidth]{pics/soccer_simulation_2d}
+    \caption{2D Soccer Simulation League~\cite{soccer_simulation_2d_pic}}
+    \label{fig:soccer_simulation_2d}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.48\textwidth}
+    \includegraphics[width=\textwidth]{pics/soccer_simulation_3d}
+    \caption{3D Soccer Simulation League~\cite{soccer_simulation_low_level}}
+    \label{fig:soccer_simulation_3d}
+  \end{subfigure}
+  \caption{RoboCup Soccer Simulation Leagues}
+  \label{fig:soccer_simulation}
+\end{figure}
+The soccer simulations of the RoboCup are similary splitted in two leagues. In the \textit{2D Soccer Simulation League}, 22 agents in two teams play soccer in a two dimensional environment. A single server called Soccer Server simulates and controls the game with its physics, the actions of the agents and the perception of the agents. Each agent is an autonomous programm and communicates with the soccer server to receive noisy sensor data and send action-commands to influence the simulation~\cite{soccer_simulation}. The main challenges of the 2D Soccer Simulation League are planning the actions of each agent when playing in offense and reacting on the opponent and predicting his movement when playing in defense. The \textit{3D Soccer Simulation League} features a more realistic simulation. This league fully simulates nine NAO robots per team. Therefore, the low level control and perception are an important part of the challenge~\cite{soccer_simulation_low_level}. This is an important opportunity for the teams participating in SSL to test their approaches first in the simulation because SSL also uses the NAO as robot platform. The communication between the agents and the Soccer Server is in this league similar to the 2D league. The rules of the league are inspired by the FIFA football rules but have some resonable extensions~\cite{soccer_rules_3d}. For example a goal directly form the kick off is not allowed and if too many robots are in a small area around the ball, the position of some robots is reset.\\
+All simulations we have looked at in this section are similar to the simulation we developed for LLSF. The simulations are important for benchmarking multi-agent systems because the system can be tested with low effort in comparison with real multi-robot systems and some details, such as low level control and perception, can be left out.  Furthermore the simulations have in common that the evaluation of the whole system can be done by looking at the results and progress of the simulated games. Especially by 2D Soccer Simulation teams, this is used by to do reinforcement learning~\cite{simsoccer_reinforcement_1,simsoccer_reinforcement_2}. Similar as it is possible to improve a real multi-robot system in SPL by improving the performance of the multi-robot system in the 3D Soccer Simulation League~\cite{from_sim_to_real}, we also want to improve our real system by using a simulation.\textcolor{red}{ausführen?}
+
+
 \subsection{Scene Reconstruction}
 \textcolor{red}{sectionname?}
 \subsection{Simulation Environment for the Middle Size League}
