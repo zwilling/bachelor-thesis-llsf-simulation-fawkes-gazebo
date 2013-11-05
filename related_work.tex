@@ -96,8 +96,25 @@ The soccer simulations of the RoboCup are similary splitted in two leagues. In t
 All simulations we have looked at in this section are similar to the simulation we developed for LLSF. The simulations are important for benchmarking multi-agent systems because the system can be tested with low effort in comparison with real multi-robot systems and some details, such as low level control and perception, can be left out.  Furthermore the simulations have in common that the evaluation of the whole system can be done by looking at the results and progress of the simulated games. Especially by 2D Soccer Simulation teams, this is used by to do reinforcement learning~\cite{simsoccer_reinforcement_1,simsoccer_reinforcement_2}. Similar as it is possible to improve a real multi-robot system in SPL by improving the performance of the multi-robot system in the 3D Soccer Simulation League~\cite{from_sim_to_real}, we also want to improve our real system by using a simulation.\textcolor{red}{ausführen?}
 
 
-\subsection{Scene Reconstruction}
-\textcolor{red}{sectionname?}
+\subsection{Scene Reconstruction for Fault Analysis}
+Some work was already done with Gazebo and Fawkes. Bastian Klingen developed a scene reconstruction for fault analysis in his diploma thesis~\cite{KlingenDA}. The scene reconstruction was primarily made for a mobile robot with a \textcolor{red}{Microsoft} Kinnect and a laser range sensor for perception and a gripper arm for manipulation. The task of the robot was to grep a colored cup on a table. The scenario and the reconstruction are shown in Figure~\ref{fig:klingen}. Because this gripping taks involves many components and sometimes fails if a single component fails, a tool was needed to analyse unsuccesful atempts afterwards. This tool reconstructs the scene with the position of the robot, its sensor data and world belief. Therefore the movements, sensor data and belief of the robot have to be logged while perfoming a grep. The logging was also done with MongoDB because of the needed speed. Gazebo was used to visualize the robots perception and belief and to reconstruct the scene. Fawkes was used to control the robot, to log the nedded data and to control gazebo and read the log while reconstructing the scene. Together with the scene reconstruction, Klingen provided a tool to analyze faults to find components that causes the faults. Therefore he constructed a dependency tree of the components and ordered it in a data-information-knowledge hierarchy.\\
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.38\textwidth}
+    \includegraphics[width=0.7\textwidth]{pics/klingen_real}
+    \caption{Grapping a cup in the real scene}
+    \label{fig:klingen_real}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.58\textwidth}
+    \includegraphics[width=\textwidth]{pics/klingen_sim}
+    \caption{Reconstruction in the Gazebo simulator}
+    \label{fig:klingen_sim}
+  \end{subfigure}
+  \caption{Scene Reconstruction for Fault Analysis~\cite{KlingenDA}}
+  \label{fig:klingen}
+\end{figure}
+To establish the communication between Fawkes and Gazebo, Klingen developed a Fawkes plugin that provides the communication objects of the Gazebo \textcolor{red}{API} as an aspect. In this thesis we use this plugin and expend it for our needs. Similar but not so suffisticated as in the thesis by Klingen, we want to provide a possibility to reconstruct faults to find the causes. We do not record the perception of the robots in the simulation but we record the movement of all simulated objects and the high level decisions of the agents which represent can be used to derivate the belief of the robot. The motion of the objects in the simulation can be recorded by Gazebo and the agent decisions by logging our rule-based production system CLIPS. We describe CLIPS in \textcolor{red}{a following section or the background}.
+
 \subsection{Simulation Environment for the Middle Size League}
 
 \section{Multi-Agent Strategies}
