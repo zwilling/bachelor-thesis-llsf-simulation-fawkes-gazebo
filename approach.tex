@@ -10,5 +10,40 @@ In this chapter, we describe the approach of this thesis by presenting the main 
 \textbf{Expendability and flexibility:} An essential criterion of a good simulation is the expendability to adapt to future changes. On the one hand, there will be changes to the Carologistics Robotino and to LLSF. These changes have to be easy to implement in the simulation, otherwise the simulation would not remain useful. On the other hand, it is attractive to use the simulation also in other domains, such as RoboCup @Home. To achieve the expendability of the simulation, we provide a framework for simulated devices in Gazebo and Fawkes. Furthermore we concentrate on developing small modules that are exchangeable and reusable. In Gazebo, new modules can easily be added to the robot and world plugins. In Fawkes it is easy to implement a new plugin which provides the wanted features because the plugin can use the provided Gazebo aspect. In addition, a detailed documentation and example plugins allows other developers to easily extend the simulation. \textcolor{red}{TODO: wiki plugin dev!}. The simulation should also be flexible to adapt to small changes. Therefore we provide several configuration files for the simulation environment, the simulated objects and robots and the plugins for Gazebo and Fawkes. \textcolor{red}{Gazebo config}
 
 
-
 \section{Architecture}
+
+\subsection{Simulation}
+\begin{figure}
+\includegraphics[width=\textwidth]{tabs/fawkes_gazebo}
+\caption{Architecture of the simulation}
+\label{fig:fawkes_gazebo}
+\end{figure}
+
+\subsection{Communication Fawkes-Gazebo}
+\begin{figure}
+\includegraphics[width=\textwidth]{tabs/communication}
+\caption{Communication between Fawkes and Gazebo}
+\label{fig:communication}
+\end{figure}
+
+\subsection{Multi-level Abstraction}
+\begin{figure}
+\centering
+\begin{subfigure}[b]{\textwidth}
+\includegraphics[width=\textwidth]{tabs/mla_hardware}
+\caption{With real hardware}
+\label{fig:mla_hardware}
+\end{subfigure}
+\begin{subfigure}[b]{\textwidth}
+\includegraphics[width=\textwidth]{tabs/mla_sim_low}
+\caption{With low level abstraction}
+\label{fig:mla_sim_low}
+\end{subfigure}
+\begin{subfigure}[b]{\textwidth}
+\includegraphics[width=\textwidth]{tabs/mla_sim_high}
+\caption{With high level abstraction}
+\label{fig:mla_sim_high}
+\end{subfigure}
+\caption{Example for multi-level abstraction}
+\label{fig:mla}
+\end{figure}
