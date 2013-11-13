@@ -52,6 +52,8 @@
 
 %\abstract{This is the abstract.}
 
+%avoid empty pages before chapter
+\let\cleardoublepage\clearpage
 
 \include{introduction}
 \include{background}
@@ -60,6 +62,10 @@
 \include{implementation}
 \include{evaluation}
 \include{summery_future_work}
+
+%reenable empty pages before chapter
+\let\cleardoublepage\cleardoublepage
+
 \newpage
 
 \bibliographystyle{plain}
