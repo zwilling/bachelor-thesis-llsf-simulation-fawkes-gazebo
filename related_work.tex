@@ -1,8 +1,10 @@
 \chapter{Related Work}
-In this chapter we present work related to this thesis. In section 3.1, we describe alternatives to Gazebo and why we choose Gazebo. In section 3.2, we give an overview of other popular simulations, especially a simulation that also uses Gazebo and other multi-robot simulations, and in section 3.3, we describe our current multi-robot strategy as well as other attractive strategies our simulation should be able to evaluate. In the following, we will use the terms \textit{multi-robot} and \textit{multi-agent} interchangeably because the common term in literature is multi-agent and we want to use multi-robot. A multi-agent system can consist of fully abstract agents, such as \textcolor{red}{...}, whereas we are dealing with multi-robot system and therefore robots that interact physically with their environment.
+\label{cha:related_work}
+In this chapter we present work related to this thesis. In section~\ref{sec:other_simulators}, we describe alternatives to Gazebo and why we choose Gazebo. In section~\ref{sec:simulations}, we give an overview of other popular simulations, especially a simulation that also uses Gazebo and other multi-robot simulations, and in section~\ref{sec:multi_agent_strategies}, we describe our current multi-robot strategy as well as other attractive strategies our simulation should be able to evaluate. In the following, we will use the terms \textit{multi-robot} and \textit{multi-agent} interchangeably because the common term in literature is multi-agent and we want to use multi-robot. A multi-agent system can consist of fully abstract agents, such as \textcolor{red}{...}, whereas we are dealing with multi-robot system and therefore robots that interact physically with their environment.
 
 
 \section{Other Simulators}
+\label{sec:other_simulators}
 \textcolor{red}{blabla?}
 \subsection{Stage}
 \textit{Stage}\footnote{\url{http://playerstage.sourceforge.net/index.php?src=stage}} is an Open Source multi-robot simulator for a two dimensional environment. It is a part of the \textit{Player/Stage} project~\cite{{PlayerStage}}. \textit{Player} is a robot control server, which provides a simple connection between a robot control program and the sensors and actuators of a robot. Stage uses this connection and replaces the sensors and actuators by simulated ones. Stage was popular simulator in the last years and is able to simulate a large amount of robots. For the simulation, stages simple and computationally cheap models, that provide still enough fidelity for most applications. Furthermore the computational effort is linear in the number of robots. Because of that, Stage can simulate large amounts of robots~\cite{stage_massive}. This makes Stage attractive for the simulation of swarms and multi-robot systems with many robots.
@@ -31,6 +33,7 @@ An other important argument for Gazebo is that it was used at KBSG before. It wa
 There are only few disadvantages of Gazebo for this thesis. A disadvantage is that Gazebo can not handle larger number of robots. The complexity of the simulations limits the simulation speed when using multiple robots. The number of robots to simulate at a reasonable speed is in the order of ten~\cite{GazeboDesign}. This can become a problem if the simulation runs on a slow computer or there are more robots to simulate at the same time.
 
 \section{Simulations}
+\label{sec:simulations}
 \textcolor{red}{blabla?}
 \subsection{Virtual Robotics Challenge}
 The \textit{Virtual Robotics Challenge (VRC)} is a competition by DARPA\footnote{DARPA is the Defense Advanced Research Projects Agency of the USA.}. The goal of the competition is to solve challenging tasks with a humanoid robot in a simulation. VRC is the first part of the \textit{DARPA Robotics Challenge (DRC)}\footnote{\url{http://www.theroboticschallenge.org/}}. DRC aims to spur the development of robots that can operate in a disaster scenario if the situation is too dangerous for humans. An example for such a scenario is the disaster in the Fukushima nuclear power plant after tsunami in March 2011~\cite{fukushima}. The developed robots should be able to operate in environment made for humans, even if the environment is damaged, and to use tools made for humans, such as screwdrivers and cars. During the competition the robots act partly autonomously and are supervised by a human instructor. For the challenge, DARPA provides six humanoid robots. The Robots are called ATLAS and are developed by Boston Dynamics. The six best teams of VRC receive a ATLAS robot for free. Therefore ATLAS is the only robot simulated in VRC. However the participating teams can also build their own robots. VRC consists of three different tasks~\cite{vrc_rules} showed in Figure~\ref{fig:vrc}.
@@ -120,6 +123,7 @@ An other work with Gazebo and Fawkes developed a simulation environment for MSL~
 
 
 \section{Multi-Agent Strategies}
+\label{sec:multi_agent_strategies}
 In this section, we present our current high level agent approach, which we want to evaluate and improve during the thesis. We also present some advanced and attractive multi-agent strategies. On the one hand our simulation should be able to simulate and evaluate these approaches as well and we might want to use one of these approaches because our current one has some limitations.
 
 \subsection{Incremental Task-level Reasoning}

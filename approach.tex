@@ -1,7 +1,9 @@
 \chapter{Approach}
-In this chapter, we describe the approach of this thesis by presenting the main ideas to reach our goals for the simulation in section 4.1. In section 4.2, we present the architectural approach.
+\label{cha:approach}
+In this chapter, we describe the approach of this thesis by presenting the main ideas to reach our goals for the simulation in section~\ref{sec:goals_and_approaches}. In section~\ref{sec:architecture}, we present the architectural approach.
 
 \section{Goals and Approaches}
+\label{sec:goals_and_approaches}
 \textbf{Realistic simulation:} The realism of the simulation is an important goal of the thesis. A more realistic simulation allows better testing because the simulation is more similar to the reality. Therefore more problems of reality can be simulated. The reality of the simulation has many different aspects. The first group of aspects belong to the realism of the sensor data. There are some sensors that are easy to simulate, such as distance sensors, bumpers and gyroscopes. Others, especially cameras, are more difficult to simulate realistically. The choice of Gazebo with ODE and Ogre for the visual appearance already allows us to simulate a wide range of sensors realistically. An other aspect for the realism is noise in the sensor data. For all metric sensors, we simulate this as Gaussian noise with the calculated value as mean and a configurable variance. The second group of aspects belong to the realism of the physical environment. Objects have to behave in the simulation and the reality in a similar way. This is especially important for robot movement and manipulation tasks. Here Gazebo with ODE also provides high realism out of the box. Nevertheless, it is important to find good physical parameters for the simulated objects. Examples of those parameters are the mass and coefficients of friction. An other important aspect of realism is that the simulation should not introduce new problems which do not occur in reality. Such a problem, which occurred in the development of the thesis, is that the simulation ran slower than the system time.\\
 \textbf{Different levels of simulation:} Besides a simulation, which is so realistic as possible, it is also useful to test with a more abstract simulation. This allows testing the optimal case without sensor noise or without using low level components, such as localization, if those produce new errors or are not finished jet. To be able to simulate on different levels we use the multi-level abstraction approach presented in the chapter about related work~\cite{MultiLevelAbstraction}. We use multi-level abstraction for sensing and for actuating. How we use multiple abstraction levels is shown in the next section about the architecture.\\
 \textbf{Compatibility with original robot software:} We want to achieve the goal that the robot software runs in the simulation in the same way as in reality. This is important because otherwise it would result in additional effort to keep the robot software in the simulation and in the reality running and this effort can cause more difference between simulation and reality. In the thesis, the simulation should use the same interfaces as the real components that are simulated. In Fawkes this is easy to achieve because the interfaces between components are well defined and components using an interface do not recognize whether the interface is provided by the simulation or a real component. \textcolor{red}{woerter zu oft wiederholt?}\\
@@ -11,8 +13,10 @@ In this chapter, we describe the approach of this thesis by presenting the main 
 
 
 \section{Architecture}
+\label{sec:architecture}
 
 \subsection{Simulation}
+\label{sec:architecture_simulation}
 \begin{figure}
 \includegraphics[width=\textwidth]{tabs/fawkes_gazebo}
 \caption{Architecture of the simulation}
@@ -22,6 +26,7 @@ The basic structure of the simulation is shown in Figure~\ref{fig:fawkes_gazebo}
 
 
 \subsection{Communication Fawkes-Gazebo}
+\label{sec:architecture_communication}
 \begin{figure}
 \includegraphics[width=\textwidth]{tabs/communication}
 \caption{Communication between Fawkes and Gazebo}
@@ -31,6 +36,7 @@ The communication between Fawkes and the Gazebo simulation has a specific struct
 
 
 \subsection{Multi-level Abstraction}
+\label{sec:architecture_mla}
 \begin{figure}
 \centering
 \begin{subfigure}[b]{\textwidth}
