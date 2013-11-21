@@ -1,11 +1,44 @@
 \chapter{Evaluation}
 \label{cha:evaluation}
+In this chapter, we evaluate the results of the thesis. The evaluation is seperated into two parts. In the first part, we evaluate our simulation. This includes the how good the simulation is in terms of relism and problems it can simulate, the computational effort with the resulting simulation speed, the use and advantages of the simulation and the limitations we encountered. The second part shows the evaluation of the multi-robot system and our improvements with the simulation. Here we present the performance of different configurations with different agent improvements.
 
-This is the evaluation.
+\section{Simulation}
+\label{sec:simulation}
+\subsection{Realism}
+In this section, we show how realistic our simulation is, which problems we can simulate and which problems we can not simulate. Because there is no general measurement method to determine the realism of a robot simulator, we devide the problem and investigate all building block of the simulation. Afterwards, we also give a qualitative review how the simulation as a whole differs from reality.\\
+Visually, our simulation can represent the basic structure of the LLSF environment. This already allows us to perform our vision tasks, which include brightness detection and color finding, in the simulation. However, it is diffucult so simulate some problems that appear in reality. Especially reflections and ambient light can cause false positive vision detections we can not simulate. Physically, Gazebo is able to simulate a realistic interaction between objects, but it is difficult to find appropriate friction parameters for objects, what can result in weird physical behavior. Furthermore, we have to compose the physical representation of an object by simple geometries because complex geometries are computationally costly to simulate. This also can cause a difference between simulation and reality. We are able to simulate movement of the Robotino, collisions with objects and other robots and pushing pucks well. However, we simulate the movement of the Robotino and carrying pucks in a gripper on a higher abstraction level because of already mentioned problems with omni-directional wheels and pucks moving out of the gripper during turning. The distance sensors of the simulation produce realistic data because the data is easy to compute and we add gaussian noise to the data. The only problem with the added noise in the current version is that the variance of the error added to a computed distance is constant whereas in reality the error depends on the distance. Therfore in the simulation, the noise in the measured distance is higher as in reality for near objects. This seems to be no problem. We have not recogniced a difference between the localization with amcl in the simulation and in reality. The gyroscope sensor also is easy to simulate and we have not recognized a difference to real sensor data. The communication between robots and the Refbox can also cause problems in reality. We simulate package loss which is the major cause for the problem. We do not simulate communication delay because this problem is not so important in the LLSF environment. In the simulation, the impact of communication problems on the multi-robot system is similar to what we have observed during the RoboCup 2013.\\
+The simulation speed also can have an impact on the realism of the simulation. We minimized this impact by synchronizing the time of Fawkes and the Refbox with the simulation time. Because of the estimation method we use there to decrease the amount of sent protobuf messages, a small time difference remains. We measured this difference 5 times. \textcolor{red}{append measurements?} Every time, the difference was less than 25 seconds for an 18 minutes game. Therefore, the impact on the performance is small.
+Slower update rates of sensors and movement commands are useful to increase the speed of the simulation but can also cause differeces between simulation and reality. We use update rates which are compromises between realism and computational speed. The update rate of the laser range finder is $5 Hz$, what is the half frequency of the real sensor, and there is no impact on the localization recognizable. The update rate of the webcam is $2 Hz$ and therefore much slower than in reality. This increases the delay of vision results and has no important impact on the performance of a robot because the plugin light\_front detects light states with a delay of about one second.\\
+We compare the performance of our system at the RoboCup 2013 with the performance of the system with the same configuration in the simulation in section~\ref{sec:multi_robot_strategies}. The raw amount of points achieved in simulation and reality can not be used to evaluate the realism of the simulator because of different conditions. In the real competition, teams can take misbehaving robots out of the game and can restart a single robot once. We do not use this possibility in automated simulation runs. Furthermore, less vision failures which can have a large impact on the performance occur in the simulation. However, LLSF games in reality and our simulation look very similar because the robots perform the same actions and the problems that cause the robots to loose time or behave wrongly are the same or similar. For example the Movebase movement, which looks nervous and does much recovery behavior when facing obstacles, is the same in the simulation and the problem of interpreting a green light as a finished production, altough the robot did not correctly place a puck under the machine, happens in the same way.
+\textcolor{red}{pictures?}
+
+\subsection{Computational Performance}
+The computational performance 
+
+\textcolor{red}{
+distribution movebase
+prioritize movebase down
+CPU + Memory Usage
+Simulation Speed
+With different number of robots
+(With different sensor update rates)
+step size}
+\subsection{Use for Multi-Robot System Development}
+Expendability: hackathon
+problem test specific situation
+\subsection{Limitations}
+
+\section{Multi-Robot Strategies}
+\label{sec:multi_robot_strategies}
+\subsection{Dynamic Role Change}
+\subsection{Recycling}
+digital optical distance sensor adjustment
+\subsection{Role Configurations}
+\subsection{Different Abstraction Levels}
+bad network influence eval
 
 
-Expendability: hackathon, Ceasar?
+
 
 realism: time error?
 
-bad network influence eval
