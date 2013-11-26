@@ -45,7 +45,7 @@ Beside these points the simulation is very useful for the evaluation of our mult
   \caption{Bonding Hackathon 2013}
   \label{fig:hackathon}
 \end{figure}
-We also used our simulation in the Hackathon in November 2013. The Hackathon was an event organized by Bonding\footnote{Boning is a student association which organizes events to provide insights into the working life and contacts to companies looking for employees (\url{http://www.bonding.de}).} and Carologistics. In one night, the participants got an insight into developing skills \textcolor{(behavior engine in backgrond)} with Fawkes and Lua in a search and rescue scenario. The task was to find colored pucks with the Robotino at night and bring the pucks to a safe area. Figure~\ref{fig:hackathon_real} shows a Robotino doing this task. In addition to the equipment in LLSF, the Robotino holds a flashlight and a webcam looking downwards to detect pucks. The simulation was an essential part of the Hackathon for multiple reasons. There were about 40 participants, which worked in teams of two or three people, and only 4 available Robotinos and fields. Therefore, the simulation was necessary to provide the possibility of frequently testing and testing was important because the participants had no experience with Lua, the Robotino and our behavior engine. The scripts allowed easy and fast starting of the simulation and all needed components to operate the simulated Robotino. So, the participants did not need to know how to start Gazebo, Ros and Fawkes with additional plugins. Furthermore, the simulation provided a safe enviroment where no hardware can be damaged. The successful use of the simulation at the Hackathon also shows the capabilities of the simualtion. Many teams primarily tested their code in the simulation and added only slight changes after testing on the real robot. This shows that the simulation is very similar to the real application. Feedback from some participants showed that the simulator is easy to use and runs with a high simulation speed close to real time even on a slow notebook. We were able to increase the simulation speed because the Hackathon task did not require so much physicall accuracy as the LLSF task. However, the GUI of the simulator reacted more slowly than on faster computers. We think this was due to missing graphic drivers.\\
+We also used our simulation in the Hackathon in November 2013. The Hackathon was an event organized by Bonding\footnote{Boning is a student association which organizes events to provide insights into the working life and contacts to companies looking for employees (\url{http://www.bonding.de}).} and Carologistics. In one night, the participants got an insight into developing skills \textcolor{red}{(behavior engine in backgrond)} with Fawkes and Lua in a search and rescue scenario. The task was to find colored pucks with the Robotino at night and bring the pucks to a safe area. Figure~\ref{fig:hackathon_real} shows a Robotino doing this task. In addition to the equipment in LLSF, the Robotino holds a flashlight and a webcam looking downwards to detect pucks. The simulation was an essential part of the Hackathon for multiple reasons. There were about 40 participants, which worked in teams of two or three people, and only 4 available Robotinos and fields. Therefore, the simulation was necessary to provide the possibility of frequently testing and testing was important because the participants had no experience with Lua, the Robotino and our behavior engine. The scripts allowed easy and fast starting of the simulation and all needed components to operate the simulated Robotino. So, the participants did not need to know how to start Gazebo, Ros and Fawkes with additional plugins. Furthermore, the simulation provided a safe enviroment where no hardware can be damaged. The successful use of the simulation at the Hackathon also shows the capabilities of the simualtion. Many teams primarily tested their code in the simulation and added only slight changes after testing on the real robot. This shows that the simulation is very similar to the real application. Feedback from some participants showed that the simulator is easy to use and runs with a high simulation speed close to real time even on a slow notebook. We were able to increase the simulation speed because the Hackathon task did not require so much physicall accuracy as the LLSF task. However, the GUI of the simulator reacted more slowly than on faster computers. We think this was due to missing graphic drivers.\\
 The use of the simulation at the Hackathon also showed that the simulation is extendable and easy to modify. The new approach to detect pucks with different colors works well with the webcam module developed for machine light detection and modifying the scripts and  models for the Robotino and the LLSF field with colored pucks and obstacles was easy and fast. We also deactivated the modules and plugins we did not need in the Hackathon to save performance.\\
 The Hackathon was successful, most teams were able to develp a working skill which saved multiple pucks in the final competition on the real robot altought they worked the first time with Lua, the robotino and the behavior engine. Some teams performed very well and saved nearly all pucks.
 
@@ -54,6 +54,37 @@ In this subsection, we describe the limitations of the simulation. First of all,
 
 \section{Multi-Robot Strategies}
 \label{sec:multi_robot_strategies}
+In this section, we evaluate our multi-robot system and the improvements we made with the simulation. This shows what the simulation can evaluate and where we have to improve our system in the future. We compare the improved system with our performance at the RoboCup 2013 in Eindhoven. As mentioned in section~\ref{sec:multi_agent_strategies}, we used two Robotinos, one with the P3-role and one with the P1P2-role. \textcolor{red}{numbers} Unfortunately, the performance in Eindhoven is not suitable for comparison with simulation runs because of the human interaction with misbehaving robots in the real game and less wrong perception results in the simulation. Furthermore, we also applied small improvements to the system that cause the system to perform better than in Eindhoven. Therefore, we rather use simulation runs with the same configuration as in Eindhoven as a basis for comperison. All experiments in the simulation have in common that there are more outliers with poor performance because we can not restart misbehaving robots in the simulation. This also scatters the performance of single simulation runs because the amount of lost points caused by a misbehaving robot depends on the time time when the misbehaving starts.
+
+
+
+
+
+
+
+
+
+
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis} [[
+          enlarge x limits=0.5,
+          xtick=data,
+          width=\textwidth,
+          symbolic x coords={Eindhoven,P1P2-P3,P3-P3,P1P2-P3-R,P1P2-P3-D,P1-P2-RD},
+          table/header=false
+        ]
+        \addplot [box plot median] table {evaluation.dat};
+        \addplot [box plot box] table {evaluation.dat};
+        \addplot [box plot top whisker] table {evaluation.dat};
+        \addplot [box plot bottom whisker] table {evaluation.dat};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{The amount of points reached in multiple LLSF simulation runs with two robots and different configurations and improvements \textcolor{red}{explain R and D}}
+\end{figure}
+
 \subsection{Dynamic Role Change}
 \subsection{Recycling}
 digital optical distance sensor adjustment
