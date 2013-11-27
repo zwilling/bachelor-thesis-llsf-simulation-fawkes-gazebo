@@ -54,17 +54,7 @@ In this subsection, we describe the limitations of the simulation. First of all,
 
 \section{Multi-Robot Strategies}
 \label{sec:multi_robot_strategies}
-In this section, we evaluate our multi-robot system and the improvements we made with the simulation. This shows what the simulation can evaluate and where we have to improve our system in the future. We compare the improved system with our performance at the RoboCup 2013 in Eindhoven. As mentioned in section~\ref{sec:multi_agent_strategies}, we used two Robotinos, one with the P3-role and one with the P1P2-role. \textcolor{red}{numbers} Unfortunately, the performance in Eindhoven is not suitable for comparison with simulation runs because of the human interaction with misbehaving robots in the real game and less wrong perception results in the simulation. Furthermore, we also applied small improvements to the system that cause the system to perform better than in Eindhoven. Therefore, we rather use simulation runs with the same configuration as in Eindhoven as a basis for comperison. All experiments in the simulation have in common that there are more outliers with poor performance because we can not restart misbehaving robots in the simulation. This also scatters the performance of single simulation runs because the amount of lost points caused by a misbehaving robot depends on the time time when the misbehaving starts.
-
-
-
-
-
-
-
-
-
-
+In this section, we evaluate our multi-robot system and the improvements we made with the simulation. This shows what the simulation can evaluate and where we have to improve our system in the future. We compare the improved system with our performance at the RoboCup 2013 in Eindhoven. As mentioned in section~\ref{sec:multi_agent_strategies}, we used two Robotinos, one with the P3-role and one with the P1P2-role. Unfortunately, the performance in Eindhoven is not suitable for comparison with simulation runs because of the human interaction with misbehaving robots in the real game and less wrong perception results in the simulation. Furthermore, we also applied small improvements to the system that cause the system to perform better than in Eindhoven. Therefore, we rather use simulation runs with the same configuration as in Eindhoven as a basis for comperison. The results of all games in Eindhoven~\cite is shown in Figure~\ref{fig:eval_two} All experiments in the simulation have in common that there are more outliers with poor performance because we can not restart misbehaving robots in the simulation. This also scatters the performance of single simulation runs because the amount of lost points caused by a misbehaving robot depends on the time time when the misbehaving starts.
 
 \begin{figure}
   \centering
@@ -83,12 +73,15 @@ In this section, we evaluate our multi-robot system and the improvements we made
     \end{axis}
   \end{tikzpicture}
   \caption{The amount of points reached in multiple LLSF simulation runs with two robots and different configurations and improvements \textcolor{red}{explain R and D}}
+  \label{fig:eval_two}
 \end{figure}
 
 \subsection{Dynamic Role Change}
 \subsection{Recycling}
 digital optical distance sensor adjustment
 \subsection{Role Configurations}
+p3\_p3 better in eindhoven no time for testing
+
 \subsection{Different Abstraction Levels}
 bad network influence eval
 
