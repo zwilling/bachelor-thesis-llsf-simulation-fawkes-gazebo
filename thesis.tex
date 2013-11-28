@@ -46,7 +46,7 @@
     box plot top whisker/.style={
         /pgfplots/error bars/draw error bar/.code 2 args={%
             \pgfkeysgetvalue{/pgfplots/error bars/error mark}%
-            {\pgfplotserrorbarsmark}%
+            {\pgfplotserrorbarsmark}%X
             \pgfkeysgetvalue{/pgfplots/error bars/error mark options}%
             {\pgfplotserrorbarsmarkopts}%
             \path ##1 -- ##2;
@@ -104,7 +104,7 @@
 %\abstract{This is the abstract.}
 
 %avoid empty pages before chapter
-\let\cleardoublepage\clearpage
+%\let\cleardoublepage\clearpage
 
 \include{introduction}
 \include{background}
@@ -115,7 +115,7 @@
 \include{summery_future_work}
 
 %reenable empty pages before chapter
-\let\cleardoublepage\cleardoublepage
+%\let\cleardoublepage\cleardoublepage
 
 \newpage
 
