@@ -54,8 +54,7 @@ In this subsection, we describe the limitations of the simulation. First of all,
 
 \section{Multi-Robot Strategies}
 \label{sec:multi_robot_strategies}
-In this section, we evaluate our multi-robot system and the improvements we made with the simulation. This shows what the simulation can evaluate and where we have to improve our system in the future. We compare the improved system with our performance at the RoboCup 2013 in Eindhoven. As mentioned in section~\ref{sec:multi_agent_strategies}, we used two Robotinos, one with the P3-role and one with the P1P2-role. Unfortunately, the performance in Eindhoven is not suitable for comparison with simulation runs because of the human interaction with misbehaving robots in the real game and less wrong perception results in the simulation. Furthermore, we also applied small improvements to the system that cause the system to perform better than in Eindhoven. Therefore, we rather use simulation runs with the same configuration as in Eindhoven as a basis for comperison. The results of all games in Eindhoven~\cite is shown in Figure~\ref{fig:eval_two} All experiments in the simulation have in common that there are more outliers with poor performance because we can not restart misbehaving robots in the simulation. This also scatters the performance of single simulation runs because the amount of lost points caused by a misbehaving robot depends on the time time when the misbehaving starts.
-
+In this section, we evaluate our multi-robot system and the improvements we made with the simulation. This shows what the simulation can evaluate and where we have to improve our system in the future. We compare the improved system to the version at the RoboCup 2013 in Eindhoven. As mentioned in section~\ref{sec:multi_agent_strategies}, we used two Robotinos, one with the P3-role and one with the P1P2-role. Unfortunately, the real performance in Eindhoven is not suitable for comparison with simulation runs because of the human interaction with misbehaving robots in the real game and less wrong perception results in the simulation. Furthermore, we also applied small improvements to the system that cause the system to perform better than in Eindhoven. Therefore, we rather use simulation runs with the same configuration as in Eindhoven as a basis for comperison.
 \begin{figure}
   \centering
   \begin{tikzpicture}
@@ -72,14 +71,52 @@ In this section, we evaluate our multi-robot system and the improvements we made
         \addplot [box plot bottom whisker] table {evaluation.dat};
     \end{axis}
   \end{tikzpicture}
-  \caption{The amount of points reached in multiple LLSF simulation runs with two robots and different configurations and improvements \textcolor{red}{explain R and D}}
+  \caption{The box-plots show the amount of points reached in multiple LLSF simulation runs with two robots. \textit{Eindhoven} shows the real performance at the RoboCup 2013, all other results were simulated. The labeling mark used roles and improvements (R: recycling, D: dynamic role change).}
   \label{fig:eval_two}
 \end{figure}
+Figure~\ref{fig:eval_two} shows the performances with two robots. We simulated 10 to 15 runs for each configuration. All experiments in the simulation have in common that there are more outliers with poor performance because we can not restart misbehaving robots in the simulation. This also scatters the performance of single simulation runs because the amount of lost points caused by a misbehaving robot depends on the time time when the misbehaving starts. Some of the most common causes for bad performances are shown in Figure~\ref{fig:fails}.
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.40\textwidth}
+    \includegraphics[width=\textwidth]{pics/bad_performance_eindhoven_no_reset}
+    \caption{The Robotino wants to turn left, but can not reach the target position because of the machine.}
+    \label{fig:fails_stuck}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.40\textwidth}
+    \includegraphics[width=\textwidth]{pics/wrong_local_bad_angle}
+    \caption{Stuck Robotino after approaching the machine from an inappropriate angle}
+    \label{fig:fails_angle}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.40\textwidth}
+    \includegraphics[width=\textwidth]{pics/p1_p2_wrong_localization_block_ins}
+    \caption{The Robotino is wrongly localized and can not reach the destination.}
+    \label{fig:fails_localization}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.40\textwidth}
+    \includegraphics[width=\textwidth]{pics/crash_p3_p3_wrong_localization}
+    \caption{Robotinos having troubles passing each other.}
+    \label{fig:fails_passing}
+  \end{subfigure}
+  %% \begin{subfigure}[b]{0.48\textwidth}
+  %%   \includegraphics[width=\textwidth]{pics/p1p2_p3_d_delivery_messed}
+  %%   \caption{Same scene in the simulation}
+  %%   \label{fig:hackathon_sim}
+  %% \end{subfigure}
+  \caption{Failures and problems causing bad performance}
+  \label{fig:fails}
+\end{figure}
+Figures~\ref{fig:fails_stuck} and~\ref{fig:fails_angle} show situations in which the Robotino gets stuck during low level movement. Often these situations block the robots the rest of the game because there is no timeout to detect that the robot is stuck or the recovery method is not able to solve the situation. These situations have a large impact on the performance of the system. The situations shown in Figure~\ref{fig:fails_localization} and~\ref{fig:fails_passing} happen during navigation. Often, such situations get solved, but it can take much time. These situations also can block the whole multi-robot system if one of the involved robots locks a position other robots need too.\\
+Because these problems limit the possibilities of the system and therefore the impact of angent improvements, good runs of different configurations are more meaningful when comparing different agents.\\
+As we can see in Figure\ref{fig:eval_two}, two P3 agents perform better than one P1P2 and one P3 agent. This is due to the fact that P3 provides more points per production step and is less likely to fail because of the lower amount of stept needed to finish a P3 puck. We did not use two P3 agents at the RoboCup in Eindhoven altought this was already possible. We simply were not able to test it because all testing time was needed for components on a lower level. This again shows how useful the simulation is for evaluation.
 
 \subsection{Dynamic Role Change}
+We expected that the \textit{P1P2-P3-D} configuration performs 10 to 20 points better per run than the \textic{P1P2-P3} configuration because after finishing the first complex product the P1P2 agent becomes a second P3 agent. Supprisingly, the performance of P1P2-P3-D is not better than the performance of P1P2-P3. The reconstructions of the simulated P1P2-P3-D runs show that a role change happens late and only rarely because it takes a large part of the game-time to finish the complex product and when the P1P2 agents gets stuck, it happens often in a way shown above and therefore the role change does not happen. The effects of the dynamic role change on the \textit{P1-P2-RD} configuration is similar. The statistics about the produced and delivered pucks show that the change worked in $30\%$ of the games and provided 10 to 30 additional points.\\
+Overall the dynamic role change has potential that is limited by the slow production speed and situations in which the robot gets completely stuck.
+
 \subsection{Recycling}
-digital optical distance sensor adjustment
-\subsection{Role Configurations}
+The \textit{P1P2-P3-R} configuration mostly performs better than the P1P2-P3 configuration. The statistics show that the P1P2 agent scores 5 to 10 additional points via recycling. The first 5 recycling points are scored early in the game after the S2 production and futher recycling points depend on the finished production of a complex product. The reconstructions of some simulation runs, especially with three robots, show that the recycling helps to avoid the bottleneck at the insertion area where robot get new S0 pucks. However, Figure~\ref{fig:eval_two} shows that there also are a couple of games with a worse performance than P1P2-P3. The reson is that the recycling step is more likely to fail than just getting a new S0 puck. There are cases in which the Robotino gets stuck at a machine when trying to grep a consumed puck and in which the Robotino has problems with leaving the recycle machine. In no simulated game the recycling was neccessary because of S0 pucks running out of stock. This might change in the future if we can produce more and faster.
+
+\subsection{Role Configurations for Three Agents}
 p3\_p3 better in eindhoven no time for testing
 
 \subsection{Different Abstraction Levels}
