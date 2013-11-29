@@ -16,7 +16,6 @@
     <data key="d7"/>
     <node id="n0">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="38.0" width="100.08416000000003" x="525.0009802933339" y="347.49564000000055"/>
@@ -38,7 +37,6 @@ Simulator<y:LabelModel>
       </data>
     </node>
     <node id="n1">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.terminator">
           <y:Geometry height="38.0" width="95.08416" x="665.3211800000006" y="347.49564000000055"/>
@@ -57,7 +55,6 @@ Robot Position<y:LabelModel>
     </node>
     <node id="n2">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="28.646559999999965" width="100.08415999999991" x="800.6413797066673" y="352.17236000000054"/>
@@ -78,7 +75,6 @@ Robot Position<y:LabelModel>
       </data>
     </node>
     <node id="n3">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="62.0" width="79.08416" x="127.58246117333385" y="335.49564000000055"/>
@@ -96,7 +92,6 @@ Robot Position<y:LabelModel>
       </data>
     </node>
     <edge id="e0" source="n0" target="n1">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -107,7 +102,6 @@ Robot Position<y:LabelModel>
       </data>
     </edge>
     <edge id="e1" source="n1" target="n2">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -117,7 +111,7 @@ Robot Position<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e2" source="n0" target="n3">
+    <edge id="e2" source="n3" target="n0">
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
