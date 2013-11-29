@@ -4,15 +4,9 @@ In this chapter, we show possible future work on the simulation and our multi-ro
 
 \section{Future Work}
 \label{sec:future_work}
-In the near future, the simulation and the multi-robot system solution for LLSF need to be changed because LLSF is going to be changed. At the RoboCup 2014 it is likely that two teams play at the same time on the same field with double size. The machines with RFID-readers might also get replaced by small assembly machines. This also demands hardware changes on the Robotino, such as a new gripper. The simulation has to be adapted to these changes.\\
-
-
-
-low level reliability, navigation coordination
-locking workaround
-grundstein methoden, andere felder
-low level reliability necessary
-refactor gazebo plugins/split in more plugins for each sensor, actuator
+In the near future, the simulation and the multi-robot system solution for LLSF need to be changed because LLSF is going to be changed. At the RoboCup 2014, it is likely that two teams play at the same time on the same field with double size. The machines with RFID-readers might also get replaced by small assembly machines. This also demands hardware changes on the Robotino, such as adding a new gripper. The simulation and the agent have to be adapted to these changes.\\
+The simulation can also be extended to work in other domains with other robots, such as domestic service robots. To improve the expendability of the simulation even further it is also useful to refactor the Gazebo plugins. The existing moules for sensors and actuators can be seperated into plugins and configuration values can be put in seperate configuration files which are read at the start of the plugins. This would allow reconfigurations and building of new simulated robots without recompiling.\\
+The simulation developed in this thesis can be the foundation of a variaty of future projects. For example, the the visualization possibilities could be used to visualize agent belief and intention, what would simplify the development of more advanced agent strategies, or the automatic simulation runs can be used to implement some kind of machine learning or parameter finding. The simulation is an important tool for future development for the LLSF. In the near future, we have to solve the problems we discovered in the section~\ref{sec:multi_robot_strategies}. This includes navigation-coordination with multiple robots, improving the locking approach to be more robust against failure, increasing reliability of low level skills and recovery from a wrong world belief. Furthermore, we have to develop large agent improvements, such as a more flexible and optimized task allocation strategy and producing without waiting at the machine untill the production is finished to do other tasks in the meantime.
 
 \section{Summery}
 \label{sec:summery}
