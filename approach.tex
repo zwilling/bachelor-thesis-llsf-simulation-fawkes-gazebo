@@ -40,23 +40,24 @@ The communication between Fawkes and the Gazebo simulation has a specific struct
 \subsection{Multi-level Abstraction}
 \label{sec:architecture_mla}
 \begin{figure}
-\centering
-\begin{subfigure}[b]{\textwidth}
-\includegraphics[width=\textwidth]{tabs/mla_hardware}
-\caption{With real hardware}
-\label{fig:mla_hardware}
-\end{subfigure}
-\begin{subfigure}[b]{\textwidth}
-\includegraphics[width=\textwidth]{tabs/mla_sim_low}
-\caption{With low level abstraction}
-\label{fig:mla_sim_low}
-\end{subfigure}
-\begin{subfigure}[b]{\textwidth}
-\includegraphics[width=\textwidth]{tabs/mla_sim_high}
-\caption{With high level abstraction}
-\label{fig:mla_sim_high}
-\end{subfigure}
-\caption{Example for multi-level abstraction (The arrows indicate data flow.)}
-\label{fig:mla}
+  \centering
+  \begin{subfigure}[b]{\textwidth}
+    \includegraphics[width=\textwidth]{tabs/mla_hardware}
+    \caption{With real hardware}
+    \label{fig:mla_hardware}
+  \end{subfigure}
+  \begin{subfigure}[b]{\textwidth}
+    \includegraphics[width=\textwidth]{tabs/mla_sim_low}
+    \caption{With low level abstraction}
+    \label{fig:mla_sim_low}
+  \end{subfigure}
+  \begin{subfigure}[b]{\textwidth}
+    \includegraphics[width=\textwidth]{tabs/mla_sim_high}
+    \caption{With high level abstraction}
+    \label{fig:mla_sim_high}
+  \end{subfigure}
+  \caption[Example for multi-level abstraction]{Example for multi-level abstraction (The arrows indicate data flow.)}
+  \label{fig:mla}
+  
 \end{figure}
 Figure~\ref{fig:mla} shows how multi-level abstraction fits into our simulation architecture. We choose a simple example about the localization with laser data. Figure~\ref{fig:mla_hardware} shows the system as it is used in the real application. There is the laser sensor hardware, a plugin which reads out the sensor and publishes the laser data in an blackboard-interface, a localization plugin which uses the laser data interface to determine a robot position and to provide the position in another interface. Then, the robot agent uses the position information from the interface. Figure~\ref{fig:mla_sim_low} shows the system in the simulation with low level abstraction. The hardware is replaced by the simulation and the laser sensor reader by a simulation-plugin which receives the laser data from the simulation. This simulation-plugin provides the same interface as the original plugin. Another possibility with high level abstraction is shown in Figure~\ref{fig:mla_sim_high}. Here, the localization plugin is replaced by a simulation-plugin which simply looks up the position of the robot in the simulation and writes it in the interface. The agent can now be simulated with ground-truth position data without using of the original localization plugin. An example for multi-level abstraction for actuators could be the movement of a robot. It is possible to simulate the motors with motor commands from an interface or the motion of the robot by applying the motion command in an interface directly to the simulated robot.

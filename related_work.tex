@@ -50,7 +50,7 @@ In this section, we present some applications of robot simulators that are relat
     \caption{Connecting a hose}
     \label{fig:vrc_hose}
   \end{subfigure}
-  \caption{Tasks of the Virtual Robotics Challenge~\cite{vrc_pics}}
+  \caption[Tasks of the Virtual Robotics Challenge]{Tasks of the Virtual Robotics Challenge~\cite{vrc_pics}}
   \label{fig:vrc}
 \end{figure}
 The \textit{Virtual Robotics Challenge (VRC)} is a competition by DARPA\footnote{DARPA is the Defense Advanced Research Projects Agency of the USA.} and shows what Gazebo is capable of. The goal of the competition is to solve challenging tasks with a humanoid robot in a simulation. VRC is the first part of the \textit{DARPA Robotics Challenge (DRC)}\footnote{\url{http://www.theroboticschallenge.org}}. DRC aims to spur the development of robots that can operate in a disaster scenario if the situation is too dangerous for humans. An example for such a scenario is the disaster in the Fukushima nuclear power plant after the tsunami in March 2011~\cite{fukushima}. The developed robots should be able to operate in environments made for humans, even if the environment is damaged, and to use tools made for humans, such as screwdrivers and cars. During the competition, the robots act semi-autonomously and are supervised by human instructors. For the challenge, DARPA provides six humanoid robots. The Robots are called \textit{ATLAS} and are developed by Boston Dynamics. The six best teams of VRC receive a ATLAS robot for free. Therefore, ATLAS is the only robot simulated in VRC. However, the participating teams can also build their own robots.
@@ -108,7 +108,7 @@ Some work was already done with Gazebo and Fawkes. Bastian Klingen developed a s
     \caption{Reconstruction in the Gazebo simulator}
     \label{fig:klingen_sim}
   \end{subfigure}
-  \caption{Scene Reconstruction for Fault Analysis~\cite{KlingenDA}}
+  \caption[Scene Reconstruction for Fault Analysis]{Scene Reconstruction for Fault Analysis~\cite{KlingenDA}}
   \label{fig:klingen}
 \end{figure}
 To establish the communication between Fawkes and Gazebo, Klingen developed a Fawkes plugin that provides the communication objects of the Gazebo API as an aspect. In this thesis, we use this plugin and expand it according to our needs. We also want to reconstruct scenes to analyze them, but in contrast to the work by Klingen we record the scene only in the simulation. We do not record the perception of the robots in the simulation, but we record the movement of all simulated objects and the high level decisions of the agents which can be used to derive the belief of the robot. The motion of the objects in the simulation can be recorded by Gazebo and the agent decisions by logging the results of our rule-based production system CLIPS.
