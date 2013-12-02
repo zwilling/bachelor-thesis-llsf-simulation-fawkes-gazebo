@@ -1,6 +1,6 @@
 \chapter{Implementation}
 \label{cha:implementation}
-In this chapter, we describe how we implemented the simulation. Section~\ref{sec:components} presents the various components we developed by describing what their task is, what we noticed during the implementation and why we implemented it this way. \textcolor{red}{module dependencies extra?} In section~\ref{sec:module_dependencies}, we describe the dependencies and interactions between the modules we developed and in section~\ref{sec:agent_improvements}, we present the improvements of the multi-agent system we implemented during this thesis.
+In this chapter, we describe how we implemented the simulation. Section~\ref{sec:components} presents the various components we developed by describing what their task is, what we noticed during the implementation and why we implemented them this way. In section~\ref{sec:agent_improvements}, we present the improvements of the multi-agent system we implemented during this thesis.
 
 \section{Components}
 \label{sec:components}
@@ -101,9 +101,9 @@ The plugin \texttt{gazsim-llsf-statistics} keeps statistics about the result of 
 There are two major reasons why we decided to develop scripts to automate starting the simulation. On the one hand, a full LLSF simulation with three simulated robots requires a large amount of running programs. It is necessary to start Gazebo, the Refbox, a Fawkes instance for robot independent plugins and for each robot a separate \texttt{roscore}, \texttt{move\_base} and Fawkes instance. Starting all programs with the required parameters is time consuming and can be automated. On the other hand, we need an automated start-up if we want to schedule multiple simulation runs. This is useful to get an overview of the system performance and to compare different strategies and configurations. Therefore, it should be possible to let the simulation run a number of times with specified configurations over night.\\
 We implemented the automation scripts as simple bash scripts because they are powerful and easy to use and extend. There are two main automation scripts called \texttt{gazsim.bash} and \texttt{gazsim-schedule.bash}. The script gazsim.bash can start or stop a simulation and has several options. It is possible to start the simulation with a specific configuration and amount of robots. The simulation can also be started in a headless mode\footnote{In the headless mode, Gazebo runs without a graphical user interface. This can save computation time. Although there is no visualization for the user, all visual sensors are still simulated.}. It is also possible to determine which level of abstraction should be used and whether the simulation starts with ROS, recording and statistics. With the script gazsim-schedule.bash, multiple simulation runs can be scheduled. It is possible to define a set of configurations, which should be compared, the amount of simulation runs for each configuration and the level of abstraction.
 
-\section{Module Dependencies}
-\label{sec:module_dependencies}
-\textcolor{red}{already mentioned most dependencies, maybe a figure with all modules? would become huge}
+%% \section{Module Dependencies}
+%% \label{sec:module_dependencies}
+%% \textcolor{red}{already mentioned most dependencies, maybe a figure with all modules? would become huge}
 
 
 \section{Agent Improvements}
