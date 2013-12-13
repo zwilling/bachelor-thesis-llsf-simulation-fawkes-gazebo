@@ -40,7 +40,7 @@
 %%   \item Approach
 %%     \begin{enumerate}
 %%     \item Goals-Approaches
-%%     \item Architecture (Simulation,Communication,Mulit-level Abstraction)
+%%     \item Architecture (Simulation,Communication,MLA)
 %%     \end{enumerate}
 %%   \item Implementation
 %%     \begin{enumerate}
@@ -195,69 +195,29 @@
   \end{multicols}
 \end{frame}
 
-
+%%%% Related Work %%%%
 \begin{frame}
-  \frametitle{Goals of the Thesis}
-  Simulation of sensors and actuators
-  \begin{itemize}
-  \item High level simulation
-  \item Low level simulation
-  \end{itemize}
-  \pause
-  Simulation environment for LLSF
-  \begin{itemize}
-  \item Modeling the reactive environment
-    %\item Implement machine behavior, rules, ...
-  \end{itemize}
-  \pause
-  Multi-agent simulation
-  \begin{itemize}
-  \item Mapping Fawkes instances - simulated robots
-    %\item Communication between agents
-  \end{itemize}
-  \pause
-  Expandability for future changes/extensions
-  \begin{itemize}
-  \item General interfaces between Fawkes and Gazebo
-  \item Modularity (e.g. exchange webcam with stereo camera)
-  \end{itemize}
-  %Multi-level abstraction
-  %LLSF Challenges
+  \frametitle{Related Work}
+  \begin{multicols}{2}
+    \only<1>{\includegraphics[width=0.52\textwidth,height=0.3\textwidth]{../pics/gazebo.jpg}}
+    \only<2>{\includegraphics[width=0.52\textwidth,height=0.3\textwidth]{../pics/soccer_simulation_3d.png}}
+    \only<3>{\includegraphics[width=0.52\textwidth,height=0.3\textwidth]{../pics/klingen_sim.png}}
+    \only<4>{\includegraphics[width=0.52\textwidth,height=0.3\textwidth]{../tabs/mla_complete.jpg}}
+    
+    \begin{overlayarea}{0.52\textwidth}{.5\textheight}
+      \begin{itemize}
+      \item Virtual Robotics Challenge
+        \pause
+      \item RoboCup Simulation Leagues
+        \pause
+      \item Scene Reconstruction for Fault Analysis
+        \pause
+      \item Multi-Level Abstraction
+      \end{itemize}
+    \end{overlayarea}
+  \end{multicols}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Multi-Agent Strategies, Evaluation}
-  Comparison of multi-agent strategies
-  \begin{itemize}
-  \item Current role-based approach vs. dynamic role allocation
-  \item Comparing different roles (e.g. production vs. recycling role)
-  \end{itemize}
-  \pause
-  Evaluation
-  \begin{itemize}
-  \item Qualitative\\(differences real world - simulation)
-  \item Quantitative\\(resource usage, scalability)
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Conclusion}
-  \begin{itemize}
-  \item Multi-Robot Systems getting more important
-  \item Development/testing difficult and time-consuming
-  \item[$\Rightarrow$] Simulation is a key to efficient development/testing
-    \pause
-  \item Goals: 
-    \begin{itemize}
-    \item LLSF simulation
-    \item  high/low level simulation
-    \item  expandability
-    \item  comparison of multi-agent strategies
-    \end{itemize}
-    \pause
-    %\item Short presentation of current state of development
-  \end{itemize}
-\end{frame}
-
+%%%% Approach %%%%
 
 \end{document}
