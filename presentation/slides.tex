@@ -118,6 +118,7 @@
   \end{itemize}
   \includegraphics[width=140pt]{../pics/kiva.jpg}
   \end{multicols}
+  \textcolor{red}{leave off slide?}
 \end{frame}
 
 \begin{frame}
@@ -182,14 +183,13 @@
 \begin{frame}
   \frametitle{Gazebo}
   \begin{multicols}{2}
-    An Open Source robot simulator
     \begin{figure}
       \includegraphics[scale=0.115]{../pics/gazebo_window.png}
     \end{figure}
+    An Open Source robot simulator
     \begin{itemize}
     \item Powerful graphics and physics engines %Reflections, Slippery (Odom)
     \item Already supports some robots and sensors (e.g. Hokuyo laser sensor)
-    \item Related work with Gazebo (Scene Reconstruction, Multi-Level Abstraction)
     \item Extensive support
     \end{itemize}
   \end{multicols}
@@ -219,5 +219,58 @@
 \end{frame}
 
 %%%% Approach %%%%
+\begin{frame}
+  \frametitle{Approach}
+  \begin{tabular}{p{3.7cm}|p{7.5cm}}
+    \hline
+    \large{\textbf{Goal}} & \large{\textbf{Approach}}\\
+    \hline
+    Realistic simulation & Using Gazebo (realistic visuals and physics), \newline Simulating sensors with noise \pause \\ 
+    \hline
+    Individual testing of high-level components & Mulit-Level Abstraction \pause \\
+    \hline
+    %Compatibility with original robot software & Replacing plugins, \newline Using the same interfaces \pause\\
+    %\hline
+    Efficient testing & Startup scripts, \newline Loading different configurations, \newline Visualizing robot belief \pause\\ 
+    \hline
+    Mulit-robot system evaluation & Scheduling simulation runs, \newline Performance statistics and recording \pause\\    
+    \hline
+    Expendability & Small and reusable modules \pause\\
+    \hline
+    Agent improvements & Using three agents, \newline Recycling, \newline Dynamic role change\\
+    \hline    
+  \end{tabular}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Architecture: Simulation}
+  \includegraphics[width=\textwidth]{../tabs/fawkes_gazebo.jpg}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Architecture: Communication}
+  \includegraphics[width=\textwidth]{../tabs/communication.jpg}
+\end{frame}
+
+%%%% Implementation %%%%
+\begin{frame}
+  \frametitle{Implementation}
+  ?
+\end{frame}
+
+%%%% Evaluation %%%%
+\begin{frame}
+  \frametitle{Evaluation: Simulation}
+  Realism:\\
+  %no common measurement => evaluation of components
+  \begin{itemize}
+  \item LLSF can be simulated realistically
+  \item Visualization sufficient for vision tasks %show vision
+  \item Reflections and lightening conditions difficult to simulate
+  \item Diffucult to find good friction parameters
+  \item[$\Rightarrow$] Many real problems can be simulated
+  \end{itemize}
+\end{frame}
+
 
 \end{document}
