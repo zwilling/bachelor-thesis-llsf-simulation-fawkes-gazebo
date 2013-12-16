@@ -18,50 +18,6 @@
 \begin{document}
 \frame{\titlepage}
 
-%% %Übersicht
-%% \begin{frame}
-%%   \frametitle{Schedule}
-%%   \begin{enumerate}
-%%   \item Motivation
-%%   \item Background
-%%     \begin{enumerate}
-%%     \item Logistic League sponsored by Festo
-%%     \item Fawkes
-%%     %Ros only mentioned besides
-%%     \item Gazebo %with advantaged in comperison to other simulators without mentioning them
-%%     \end{enumerate}
-%%   \item Related Work
-%%     \begin{enumerate}
-%%     \item Virtual Robotics Challenge
-%%     \item RoboCup Simulation Leagues
-%%     \item Scene Reconstruction
-%%     \item Multi-level Abstraction
-%%     \end{enumerate}
-%%   \item Approach
-%%     \begin{enumerate}
-%%     \item Goals-Approaches
-%%     \item Architecture (Simulation,Communication,MLA)
-%%     \end{enumerate}
-%%   \item Implementation
-%%     \begin{enumerate}
-%%     \item Components
-%%     \item Agent Improvements
-%%     \end{enumerate}
-%%   \item Evaluation
-%%     \begin{enumerate}
-%%     \item Realism/Limitations
-%%     \item Found Problems
-%%     \item Statistics
-%%     \item Hackathon
-%%     \end{enumerate}
-%%   \item Future Work
-%%   \item Summery
-%%     \begin{enumerate}
-%%     \item Differences to other siulation, unique features
-%%     \end{enumerate}
-%%   \end{enumerate}
-%% \end{frame}
-
 %Beans
 \begin{frame}
   \frametitle{Overview}
@@ -95,9 +51,9 @@
   \item Approach
   \item Implementation
   \item Evaluation
-  \item Future Work
-  \item Summery
+  \item Summary
   \end{enumerate}
+  \textcolor{red}{leave off slide?}
 \end{frame}
 
 %Motivation
@@ -107,13 +63,13 @@
   Advantages of multi-robot systems:
   \begin{itemize}
   \item Flexibility, parallelism
-  \item Heterogenous groups %Division of labour, specializing
+  \item Heterogeneous groups %Division of labour, specializing
   \item Many possible applications %Warehousing, Logistics
   \end{itemize}
   Use in logistics:
   \begin{itemize}
   \item Required parallelism
-  \item Individualized workflow
+  \item Individualized work-flow
   % Transition: Difficult to test, evaluate
   \end{itemize}
   \includegraphics[width=140pt]{../pics/kiva.jpg}
@@ -154,7 +110,7 @@
     Task:
     \begin{itemize}
     \item Produce and deliver products by feeding machines% with resources and semi-finished products
-    \item Optimize workflow and performance of the system
+    \item Optimize work-flow and performance of the system
     \item Being robust against failure
     \end{itemize}
   \end{minipage}
@@ -227,15 +183,15 @@
     \hline
     Realistic simulation & Using Gazebo (realistic visuals and physics), \newline Simulating sensors with noise \pause \\ 
     \hline
-    Individual testing of high-level components & Mulit-Level Abstraction \pause \\
+    Individual testing of high-level components & Multi-Level Abstraction \pause \\
     \hline
     %Compatibility with original robot software & Replacing plugins, \newline Using the same interfaces \pause\\
     %\hline
-    Efficient testing & Startup scripts, \newline Loading different configurations, \newline Visualizing robot belief \pause\\ 
+    Efficient testing & Start-up scripts, \newline Loading different configurations, \newline Visualizing robot belief \pause\\ 
     \hline
-    Mulit-robot system evaluation & Scheduling simulation runs, \newline Performance statistics and recording \pause\\    
+    Multi-robot system evaluation & Scheduling simulation runs, \newline Performance statistics and recording \pause\\    
     \hline
-    Expendability & Small and reusable modules \pause\\
+    Expandability & Small and reusable modules \pause\\
     \hline
     Agent improvements & Using three agents, \newline Recycling, \newline Dynamic role change\\
     \hline    
@@ -255,7 +211,27 @@
 %%%% Implementation %%%%
 \begin{frame}
   \frametitle{Implementation}
-  ?
+    \begin{itemize}
+    \item Simulation models
+      \begin{itemize}
+      \item Field, Machines, Pucks
+      \item Robotino
+      \end{itemize}
+    \item Gazebo Plugins
+      \begin{itemize}
+      \item World (LLSF game logic)
+      \item Robotino (sensors, motor)
+      \end{itemize}
+    \item Fawkes Plugins
+      \begin{itemize}
+      \item Access to Gazebo
+      \item Robotino (e.g. motor, gyro) 
+      \item Sensors (high/low level)
+      \item Organizational plugins (e.g. time-sync, inter-robot communication) %Time sync, Communication between robots, Visualizations, Statistics
+      \end{itemize}
+    \item Agent improvements
+    \item Automation scripts
+    \end{itemize}
 \end{frame}
 
 %%%% Evaluation %%%%
@@ -266,11 +242,57 @@
   \begin{itemize}
   \item LLSF can be simulated realistically
   \item Visualization sufficient for vision tasks %show vision
-  \item Reflections and lightening conditions difficult to simulate
-  \item Diffucult to find good friction parameters
+  \item Reflections and lightening conditions difficult to simulate %shows limitations
+  \item Difficult to find good friction parameters
   \item[$\Rightarrow$] Many real problems can be simulated
   \end{itemize}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Evaluation: Hackathon}
+  \begin{multicols}{2}
+    \center
+    \includegraphics[width=0.3\textwidth]{../pics/hackathon_real_de}\\
+    \includegraphics[width=0.3\textwidth]{../pics/hackathon_sim}\\
+    \raggedright
+    Bonding Hackathon 2013:
+    \begin{itemize}
+    \item $\sim 40$ inexperienced people 
+    \item Search and rescue scenario
+    \item Possibility of rapid testing with the simulation
+    \item Good results
+    \item[$\Rightarrow$] Simulation is expandable, easy to use and allows efficient testing
+    \end{itemize}
+  \end{multicols}
+\end{frame}
 
+\begin{frame}
+  \frametitle{Evaluation: Agent strategies} % explain configurations
+  \begin{multicols}{2}
+    \center
+    \includegraphics[width=0.47\textwidth]{../pics/eval_two}\\
+    \includegraphics[width=0.47\textwidth]{../pics/eval_three}\\
+    \raggedright
+    Evaluation Results:
+    \begin{itemize}
+    \item Performance in simulation similar to reality % human interaction + small fixes
+    \item $P_3P_3$ performs best % possible in Eindhoven but no possibility to compare strategies
+    \item Recycling provides simple points but is more error-prone
+    \item Dynamic role change happens only rarely
+    \item Uncoordinated navigation and resource bottlenecks limit performance with three agents
+    \end{itemize}
+  \end{multicols}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Summary}
+  Multi-robot simulation of LLSF
+  \begin{itemize}
+  \item Important to allow efficient testing and developing
+  \item Comprehensive simulation of LLSF
+  \item Efficient evaluation and comparison of multi-robot strategies
+  \item Expandable for future changes
+  \item Successfully used in several other developments\\(agent strategies, hackathon, puck-vision, collision-avoidance)
+  \end{itemize}
+\end{frame}
 \end{document}
