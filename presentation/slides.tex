@@ -15,71 +15,69 @@
 \date{19.12.2013}
 \subject{Multi-Robot Simulation}
 
+%hide nav bar
+\setbeamertemplate{navigation symbols}{}
+
 \begin{document}
 \frame{\titlepage}
 
 %Beans
 \begin{frame}
-  \frametitle{Overview}
-  What we have done in this thesis:\\
-  \begin{block}{Multi-robot simulation}
+  \frametitle{The thesis at a glance}
+  \begin{columns}
+  \column[]{0.45\textwidth}
+  \includegraphics[width=\textwidth]{../pics/sim_working_small.png}
+  \column[]{0.55\textwidth}
+  \textbf{\large Multi-robot simulation}
     \begin{itemize}
-    \item physically and visually realistic 3D environment
-    \item \textbf{Domain:} RoboCup Logistic League sponsored by Festo
-    \item \textbf{Purpose:} Testing and evaluating to improve our real multi-robot system
-    \item \textbf{Focus:} Multi-robot coordination and high level control
+    \item \textbf{Environment:} Physically and visually realistic
+    \item \textbf{Domain:} RoboCup Logistic League
+    \item \textbf{Purpose:} Testing and evaluating to improve our real system
+    \item \textbf{Focus:} Agent coordination and high level control
     \end{itemize}
-  \end{block}
+  \end{columns}
 \end{frame}
 
-%First View
-\begin{frame}
-  \frametitle{First View on the Simulation}
-
-  \begin{figure}
-    \includegraphics[width=0.7\textwidth]{../pics/sim_working.png}\\
-  \end{figure}
-\end{frame}
-
-%Schedule
-\begin{frame}
-  \frametitle{Schedule}
-  \begin{enumerate}
-  \item Motivation
-  \item Background
-  \item Related Work
-  \item Approach
-  \item Implementation
-  \item Evaluation
-  \item Summary
-  \end{enumerate}
-  \textcolor{red}{leave off slide?}
-\end{frame}
+%% %Schedule
+%% \begin{frame}
+%%   \frametitle{Schedule}
+%%   \begin{enumerate}
+%%   \item Motivation
+%%   \item Background
+%%   \item Related Work
+%%   \item Approach
+%%   \item Implementation
+%%   \item Evaluation
+%%   \item Summary
+%%   \end{enumerate}
+%%   \textcolor{red}{leave off slide?}
+%% \end{frame}
 
 %Motivation
 \begin{frame}
   \frametitle{Motivation: Multi-Robot Systems and Logistics}
-  \begin{multicols}{2}
-  Advantages of multi-robot systems:
-  \begin{itemize}
-  \item Flexibility, parallelism
-  \item Heterogeneous groups %Division of labour, specializing
-  \item Many possible applications %Warehousing, Logistics
-  \end{itemize}
-  Use in logistics:
-  \begin{itemize}
-  \item Required parallelism
-  \item Individualized work-flow
-  % Transition: Difficult to test, evaluate
-  \end{itemize}
-  \includegraphics[width=140pt]{../pics/kiva.jpg}
-  \end{multicols}
-  \textcolor{red}{leave off slide?}
+  \begin{columns}
+    \column[]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../pics/kiva.jpg}
+    \column[]{0.55\textwidth}
+    \textbf{\large Advantages of multi-robot systems:}
+    \begin{itemize}
+    \item Flexibility, parallelism
+    \item Heterogeneous groups %Division of labour, specializing
+    \item Many possible applications %Warehousing, Logistics
+    \end{itemize}
+    \textbf{\large Challenges:}
+    \begin{itemize}
+    \item Complexity
+    \item High effort of testing and evaluating
+    \end{itemize}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
   \frametitle{Motivation: Simulation}
-  Advantages of a simulation:
+  \textbf{\large Advantages of a simulation:}
+  \hspace{2cm}\\
   \begin{itemize}
   \item Possibility to test without real environment and robots
   \item Fast execution of test, automated test runs
@@ -96,18 +94,18 @@
   \noindent
   \begin{minipage}[]{0.48\linewidth}
     \begin{figure}
-      \includegraphics[width=150pt,heigth=120pt]{../pics/llsfLeague.png}\\
+      \includegraphics[width=\textwidth]{../pics/llsfLeague.png}\\
     \end{figure}
   \end{minipage}
   \hfill
   \begin{minipage}[]{0.48\linewidth}
-    League:
+    \textbf{\large League:}
     \begin{itemize}
     \item Part of RoboCup competition
     \item Testbed for logistic robots in a competitive factory automation scenario
     \end{itemize}
     \pause
-    Task:
+    \textbf{\large Task:}
     \begin{itemize}
     \item Produce and deliver products by feeding machines% with resources and semi-finished products
     \item Optimize work-flow and performance of the system
@@ -120,10 +118,10 @@
   \frametitle{Fawkes}
   \begin{multicols}{2}
     \begin{figure}
-      \only<1>{\includegraphics[scale=0.26]{../pics/simplefawkes.jpg}}
-      \only<2>{\includegraphics[scale=0.26]{../pics/lowsim.jpg}}
+      \only<1>{\includegraphics[scale=0.25]{../pics/simplefawkes.jpg}}
+      \only<2>{\includegraphics[scale=0.25]{../pics/lowsim.jpg}}
     \end{figure}
-    An Open Source robot software framework
+    \textbf{\large An Open Source robot software framework}
     \begin{itemize}
     \item Component-based software design
     \item Components are realized as plugins with multiple threads
@@ -140,9 +138,9 @@
   \frametitle{Gazebo}
   \begin{multicols}{2}
     \begin{figure}
-      \includegraphics[scale=0.115]{../pics/gazebo_window.png}
+      \includegraphics[scale=0.11]{../pics/gazebo_window.png}
     \end{figure}
-    An Open Source robot simulator
+    \textbf{\large An Open Source robot simulator}
     \begin{itemize}
     \item Powerful graphics and physics engines %Reflections, Slippery (Odom)
     \item Already supports some robots and sensors (e.g. Hokuyo laser sensor)
@@ -181,22 +179,21 @@
     \hline
     \large{\textbf{Goal}} & \large{\textbf{Approach}}\\
     \hline
-    Realistic simulation & Using Gazebo (realistic visuals and physics), \newline Simulating sensors with noise \pause \\ 
+    Realistic simulation & \begin{itemize} \item Using Gazebo \item Sensors with noise \end{itemize} \pause \\ %Using Gazebo, \newline Sensors with noise \pause \\ 
     \hline
-    Individual testing of high-level components & Multi-Level Abstraction \pause \\
+    Individual testing of high-level components & \begin{itemize} \item Multi-Level Abstraction \end{itemize} \pause \\ %Multi-Level Abstraction \pause \\
     \hline
-    %Compatibility with original robot software & Replacing plugins, \newline Using the same interfaces \pause\\
-    %\hline
-    Efficient testing & Start-up scripts, \newline Loading different configurations, \newline Visualizing robot belief \pause\\ 
+    Efficient testing & \begin{itemize} \item Start-up scripts \item Loading different configurations \item Visualizing robot belief \end{itemize} \pause \\ %Start-up scripts, \newline Loading different configurations, \newline Visualizing robot belief \pause\\ 
     \hline
-    Multi-robot system evaluation & Scheduling simulation runs, \newline Performance statistics and recording \pause\\    
+    Multi-robot system evaluation & \begin{itemize} \item Scheduling simulation runs \item Performance statistics and recording \end{itemize} \pause \\ % Scheduling simulation runs, \newline Performance statistics and recording \pause\\    
     \hline
-    Expandability & Small and reusable modules \pause\\
+    Expandability & \begin{itemize} \item Small and reusable modules \end{itemize} \pause \\ %Small and reusable modules \pause\\
     \hline
-    Agent improvements & Using three agents, \newline Recycling, \newline Dynamic role change\\
+    Agent improvements & \begin{itemize} \item Using three robots \item Recycling \item Dynamic role change \end{itemize} \pause \\ %Using three agents, \newline Recycling, \newline Dynamic role change\\
     \hline    
   \end{tabular}
 \end{frame}
+
 
 \begin{frame}
   \frametitle{Architecture: Simulation}
@@ -237,7 +234,7 @@
 %%%% Evaluation %%%%
 \begin{frame}
   \frametitle{Evaluation: Simulation}
-  Realism:\\
+  \textbf{\large Realism:}\\
   %no common measurement => evaluation of components
   \begin{itemize}
   \item LLSF can be simulated realistically
@@ -253,9 +250,10 @@
   \begin{multicols}{2}
     \center
     \includegraphics[width=0.3\textwidth]{../pics/hackathon_real_de}\\
+    \hspace{0.5cm}\\
     \includegraphics[width=0.3\textwidth]{../pics/hackathon_sim}\\
     \raggedright
-    Bonding Hackathon 2013:
+    \textbf{\large Bonding Hackathon 2013:}
     \begin{itemize}
     \item $\sim 40$ inexperienced people 
     \item Search and rescue scenario
@@ -271,9 +269,10 @@
   \begin{multicols}{2}
     \center
     \includegraphics[width=0.47\textwidth]{../pics/eval_two}\\
+    %\hspace{0.5cm}\\
     \includegraphics[width=0.47\textwidth]{../pics/eval_three}\\
     \raggedright
-    Evaluation Results:
+    \textbf{\large Evaluation Results:}
     \begin{itemize}
     \item Performance in simulation similar to reality % human interaction + small fixes
     \item $P_3P_3$ performs best % possible in Eindhoven but no possibility to compare strategies
@@ -284,9 +283,11 @@
   \end{multicols}
 \end{frame}
 
+%%%% Summary %%%%
+
 \begin{frame}
   \frametitle{Summary}
-  Multi-robot simulation of LLSF
+  \textbf{\large Multi-robot simulation of LLSF}
   \begin{itemize}
   \item Important to allow efficient testing and developing
   \item Comprehensive simulation of LLSF
