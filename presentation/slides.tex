@@ -7,6 +7,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{pgfplots}
+
 \usetheme{Madrid}
 \title{Bachelor-Thesis}
 \subtitle{Simulation of the RoboCup Logistic League with Fawkes and Gazebo for Multi-Robot Coordination Evaluation}
@@ -17,6 +20,7 @@
 
 %hide nav bar
 \setbeamertemplate{navigation symbols}{}
+
 
 \begin{document}
 \frame{\titlepage}
@@ -138,26 +142,34 @@
 
 \begin{frame}
   \frametitle{Related Work}
-  \begin{multicols}{2}
-    \only<1>{\includegraphics[width=0.52\textwidth,height=0.3\textwidth]{../tabs/mla_complete.jpg}}
-    \only<2>{\includegraphics[width=0.52\textwidth,height=0.3\textwidth]{../pics/gazebo.jpg}}
-    \only<3>{\includegraphics[width=0.52\textwidth,height=0.3\textwidth]{../pics/soccer_simulation_3d.png}}
-    \only<4-5>{\includegraphics[width=0.52\textwidth,height=0.3\textwidth]{../pics/klingen_sim.png}}
-    
-    \begin{overlayarea}{0.52\textwidth}{.5\textheight}
+  \begin{columns}
+    \column[c]{0.5\textwidth}
+    \begin{overlayarea}{\textwidth}{0.8\textheight}
+    \only<1->{\includegraphics[height=0.34\textwidth]{../tabs/mla_complete.jpg}}~
+    \only<2->{\includegraphics[height=0.34\textwidth]{../pics/darpa_hose}}\\
+    \only<3->{\includegraphics[height=0.38\textwidth]{../pics/klingen_sim_small.png}}~
+    \only<4->{\includegraphics[height=0.38\textwidth]{../pics/soccer_simulation_3d.png}}\\
+    \only<5->{\includegraphics[height=0.23\textwidth]{../pics/simulators_usar}}~
+    \only<5->{\includegraphics[height=0.23\textwidth]{../pics/simulators_webots}}\\
+    \only<5->{\includegraphics[height=0.245\textwidth]{../pics/simulators_stage}}~
+    \only<5->{\includegraphics[height=0.245\textwidth]{../pics/simulators_robotino}}~
+    \only<5->{\includegraphics[height=0.245\textwidth]{../pics/simulators_simspark}}
+    \end{overlayarea}
+    \column[c]{0.5\textwidth}
+    \begin{overlayarea}{\textwidth}{0.6\textheight}
       \begin{itemize}
-      \item Multi-Level Abstraction
+      \item Multi-Level Abstraction [Beck~et.~al.~2008]
         \pause
       \item Virtual Robotics Challenge
         \pause
       \item RoboCup Simulation Leagues
         \pause
-      \item Scene Reconstruction for Fault Analysis
+      \item Scene Reconstruction for Fault Analysis [Klingen~2013]
         \pause
       \item Comparison of Simulators
       \end{itemize}
     \end{overlayarea}
-  \end{multicols}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
@@ -256,27 +268,30 @@
 %%%% Implementation %%%%
 \begin{frame}
   \frametitle{Implementation}
+  \begin{columns}
+    \column[c]{0.6\textwidth}
+    \begin{overlayarea}{\textwidth}{\textheight}
+    \only<1->{\includegraphics[height=0.2\textwidth]{../pics/model_machine}}~
+    \only<1->{\includegraphics[height=0.2\textwidth]{../pics/model_robotino}}~
+    \only<1->{\includegraphics[height=0.2\textwidth]{../pics/model_puck}}~
+    \only<1->{\includegraphics[height=0.2\textwidth]{../pics/model_field}}\\
+    \only<2->{\includegraphics[width=1.0\textwidth]{../pics/robotino_presentation}}
+    \end{overlayarea}
+    \column[c]{0.4\textwidth}
+    \begin{overlayarea}{\textwidth}{0.8\textheight}
     \begin{itemize}
-    \item Simulation models
-      \begin{itemize}
-      \item Field, Machines, Pucks
-      \item Robotino
-      \end{itemize}
-    \item Gazebo Plugins
-      \begin{itemize}
-      \item World (LLSF game logic)
-      \item Robotino (sensors, motor)
-      \end{itemize}
-    \item Fawkes Plugins
-      \begin{itemize}
-      \item Access to Gazebo
-      \item Robotino (e.g. motor, gyro) 
-      \item Sensors (high/low level)
-      \item Organizational plugins (e.g. time-sync, inter-robot communication) %Time sync, Communication between robots, Visualizations, Statistics
-      \end{itemize}
-    \item Agent improvements
-    \item Automation scripts
+    \item Simulation Models
+      \pause
+    \item Sensor and Actuators\\(in Gazebo and Fawkes)
+      \pause
+    \item Game Logic\\(Light-signals)
+    \item Organizational Plugins\\(Time-synchronization)
+      \pause
+    \item Agent Improvements
+    \item Automation Scripts
     \end{itemize}
+    \end{overlayarea}
+  \end{columns}
 \end{frame}
 
 %%%% Evaluation %%%%
@@ -319,12 +334,14 @@
   \frametitle{Evaluation of Agent Strategies} % explain configurations
   \begin{columns}
     \column[c]{0.5\textwidth}
+    \begin{overlayarea}{\textwidth}{0.8\textheight}
     \center
     \only<1-5>{\includegraphics[width=\textwidth]{../pics/eval_two}}\\
     %\hspace{0.5cm}\\
     \only<5>{\includegraphics[width=\textwidth]{../pics/eval_three}}\\
-    \column[c]{0.5\textwidth}
     \raggedright
+    \end{overlayarea}
+    \column[c]{0.5\textwidth}
     \begin{itemize}
     \item Score in simulation similar to reality % human interaction + small fixes
       \pause
