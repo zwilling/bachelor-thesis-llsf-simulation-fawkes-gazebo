@@ -57,26 +57,27 @@
 %%   \textcolor{red}{leave off slide?}
 %% \end{frame}
 
-%Motivation
-\begin{frame}
-  \frametitle{Motivation: Multi-Robot Systems and Logistics}
-  \begin{columns}
-    \column[]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{../pics/kiva.jpg}
-    \column[]{0.55\textwidth}
-    \textbf{\large Advantages of multi-robot systems:}
-    \begin{itemize}
-    \item Flexibility, parallelism
-    \item Heterogeneous groups %Division of labour, specializing
-    \item Many possible applications %Warehousing, Logistics
-    \end{itemize}
-    \textbf{\large Challenges:}
-    \begin{itemize}
-    \item Complexity
-    \item High effort of testing and evaluating
-    \end{itemize}
-  \end{columns}
-\end{frame}
+%% %Motivation
+%% \begin{frame}
+%%   \frametitle{Motivation: Multi-Robot Systems}
+%%   \begin{columns}
+%%     \column[]{0.45\textwidth}
+%%     \includegraphics[width=\textwidth]{../pics/kiva.jpg}
+%%     \column[]{0.55\textwidth}
+%%     \textbf{\large Advantages of multi-robot systems:}
+%%     \begin{itemize}
+%%     \item Flexibility, parallelism
+%%     \item Heterogeneous groups %Division of labour, specializing
+%%     \item Many possible applications %Warehousing, Logistics
+%%     \end{itemize}
+%%     \pause
+%%     \textbf{\large Challenges:}
+%%     \begin{itemize}
+%%     \item Complexity
+%%     \item High effort of testing and evaluating
+%%     \end{itemize}
+%%   \end{columns}
+%% \end{frame}
 
 \begin{frame}
   \frametitle{Motivation: Simulation}
@@ -84,9 +85,13 @@
   \hspace{2cm}\\
   \begin{itemize}
   \item Possibility to test without real environment and robots
+    \pause
   \item Fast execution of test, automated test runs
-  \item Testing on different abstraction levels
+    \pause
   \item Easy comparison of performance with different configurations 
+    \pause
+  \item Testing on different abstraction levels
+    \pause
   \item Especially large advantage for multi-robot systems
   \end{itemize}
 \end{frame}
@@ -119,14 +124,13 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Fawkes}
+  \frametitle{Fawkes Robot Software Framework}
   \begin{columns}
     \column[c]{0.5\textwidth}
     \begin{figure}
       \includegraphics[width=\textwidth]{../tabs/mla_complete.jpg}
     \end{figure}
     \column[c]{0.5\textwidth}
-    \textbf{\large An Open Source robot software framework}
     \begin{itemize}
     \item Component-based software design
     \item Components are realized as plugins with multiple threads
@@ -136,7 +140,7 @@
   \end{columns}
   \begin{itemize}
   \item[$\Rightarrow$] Allows exchange of sensor/actuator plugins by simulation plugins
-  \item[$\Rightarrow$] Allows Mulit-Level Abstraction [Beck et. al. 2008] \textcolor{red}{ok?}
+  \item[$\Rightarrow$] Allows Multi-Level Abstraction [Beck et al. 2008]
   \end{itemize}
 \end{frame}
 
@@ -158,13 +162,13 @@
     \column[c]{0.5\textwidth}
     \begin{overlayarea}{\textwidth}{0.6\textheight}
       \begin{itemize}
-      \item Multi-Level Abstraction [Beck~et.~al.~2008]
+      \item Multi-Level Abstraction [Beck~et~al.~2008]
         \pause
       \item Virtual Robotics Challenge
         \pause
-      \item RoboCup Simulation Leagues
-        \pause
       \item Scene Reconstruction for Fault Analysis [Klingen~2013]
+        \pause
+      \item RoboCup Simulation Leagues
         \pause
       \item Comparison of Simulators
       \end{itemize}
@@ -173,87 +177,66 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Gazebo}
+  \frametitle{Gazebo Robot Simulator}
   \begin{multicols}{2}
     \begin{figure}
       \includegraphics[scale=0.11]{../pics/gazebo_window.png}
     \end{figure}
-    \textbf{\large An Open Source robot simulator}
+    \columnbreak
+    \large{\textbf{Advantages}}
     \begin{itemize}
-    \item Allows realistic simulation %Reflections, Slippery (Odom)
-    \item Already supports some robots and sensors (e.g. Hokuyo laser sensor)
-    \item Easy to extend
-    \item About to get more important
+    \item Open Source and runs on Linux 
+      \pause
+    \item Allows realistic simulation\\ in a 3D environment
+      \pause
+    \item Domain and robot independent
+      \pause
+    \item Already supports a variaty of robots and sensors\\(e.g. Hokuyo laser sensor) 
+      \pause
+    \item Large community
     \end{itemize}
   \end{multicols}
 \end{frame}
 
 %%%% Approach %%%%
 \begin{frame}
-  \frametitle{Approach}
+  \frametitle{Goals and Used Approaches}
   \large{\textbf{Realistic simulation}}
   \begin{itemize} 
   \item Visually and physically realistic environment
-  \item Sensors with Gaussian noise 
+  \item Simulating sensors with Gaussian noise 
   \end{itemize} 
   \pause
   \large{\textbf{Efficient testing}}
   \begin{itemize} 
-  \item Multi-Level Abstraction 
-  \item Start-up scripts 
-  \item Loading different configurations 
-  \item Visualizing robot belief 
+  \item Multi-Level Abstraction
+  \item Start-up scripts to allow faster stimulation start
+  \item Visualizing robot belief to identify faults more quickly
   \end{itemize} 
   \pause
-  \large{\textbf{Expandability}}
+  \large{\textbf{Expandability for future changes}}
   \begin{itemize} 
-  \item Small and reusable modules 
+  \item Small and reusable modules
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Approach}
+  \frametitle{Goals and Used Approaches}
   \large{\textbf{Multi-robot system evaluation}}
   \begin{itemize} 
-  \item Scheduling simulation runs 
-  \item Performance statistics and recording 
+  \item Automated simulation runs to collect results over night
+  \item Loading different configurations for comparison
+  \item Performance statistics
+  \item Recording of simulation runs
   \end{itemize} 
   \pause
   \large{\textbf{Agent improvements}}
   \begin{itemize} 
   \item Using three robots 
-  \item Recycling 
+  \item Recycling consumed pucks to get new ressource pucks
   \item Dynamic role change 
   \end{itemize}
 \end{frame}
-
-\begin{frame}
-  \frametitle{Approach}
-  \begin{tabular}{p{3.7cm}|p{7.5cm}}
-    \hline
-    \large{\textbf{Goal}} & \large{\textbf{Approach}}\\
-    \hline
-    Realistic simulation & \begin{itemize} \item Visually and physically realistic environment \item Sensors with Gaussian noise \end{itemize} \pause \\ %Using Gazebo, \newline Sensors with noise \pause \\ 
-    \hline
-    Efficient testing & \begin{itemize} \item Multi-Level Abstraction \item Start-up scripts \item Loading different configurations \item Visualizing robot belief \end{itemize} \pause \\ %Start-up scripts, \newline Loading different configurations, \newline Visualizing robot belief \pause\\ 
-    \hline
-    Expandability & \begin{itemize} \item Small and reusable modules \end{itemize} \\ %Small and reusable modules \pause\\
-    \hline
-  \end{tabular}
-\end{frame}
-\begin{frame}
-  \frametitle{Approach}
-  \begin{tabular}{p{3.7cm}|p{7.5cm}}
-    \hline
-    \large{\textbf{Goal}} & \large{\textbf{Approach}}\\
-    \hline
-    Multi-robot system evaluation & \begin{itemize} \item Scheduling simulation runs \item Game statistics and recording \end{itemize} \pause \\ % Scheduling simulation runs, \newline Game statistics and recording \pause\\    
-    \hline
-    Agent improvements & \begin{itemize} \item Using three robots \item Recycling \item Dynamic role change \end{itemize}\\ %Using three agents, \newline Recycling, \newline Dynamic role change\\
-    \hline    
-  \end{tabular}
-\end{frame}
-
 
 \begin{frame}
   \frametitle{Architecture: Simulation}
@@ -336,7 +319,12 @@
     \column[c]{0.5\textwidth}
     \begin{overlayarea}{\textwidth}{0.8\textheight}
     \center
-    \only<1-5>{\includegraphics[width=\textwidth]{../pics/eval_two}}\\
+    \only<1>{\includegraphics[width=\textwidth]{../pics/eval_similarity}}
+    \only<2>{\includegraphics[width=\textwidth]{../pics/eval_p3}}
+    \only<3>{\includegraphics[width=\textwidth]{../pics/eval_recycling}}
+    \only<4>{\includegraphics[width=\textwidth]{../pics/eval_dynamic}}
+    \only<5->{\includegraphics[width=\textwidth]{../pics/eval_two}}
+    \\
     %\hspace{0.5cm}\\
     \only<5>{\includegraphics[width=\textwidth]{../pics/eval_three}}\\
     \raggedright
@@ -360,10 +348,10 @@
 
 \begin{frame}
   \frametitle{Summary}
-  \textbf{\large Multi-robot simulation of LLSF}
+  \textbf{\large Multi-robot simulation of the LLSF}
   \begin{itemize}
   \item Important to allow efficient testing and developing
-  \item Comprehensive simulation of LLSF
+  \item Comprehensive simulation of the LLSF
   \item Efficient evaluation and comparison of multi-robot strategies
   \item Expandable for future changes
   \item Successfully used in several other developments\\(agent strategies, hackathon, puck-vision, collision-avoidance)
